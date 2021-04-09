@@ -15,12 +15,14 @@ import 'package:flutter_ctrip/widget/webview.dart';
 
 class TravelPage extends StatefulWidget {
   @override
-  _TravelPageState createState() => _TravelPageState();
+  _TravelPageState createState() => new _TravelPageState();
 }
 
 class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
   TabController _controller;
-  List<Groups> tabs = [];
+
+  // ignore: deprecated_member_use
+  List<Groups> tabs = new List<Groups>();
   TravelTabModel travelTabModel;
   TravelParamsModel travelParamsModel;
   TravelHotKeywordModel travelHotKeywordModel;
@@ -29,60 +31,62 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return new Scaffold(
+      body: new Column(
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.fromLTRB(8, 8, 6, 0),
-            decoration: BoxDecoration(
-              color: Colors.white
+          new Container(
+            padding: new EdgeInsets.fromLTRB(8, 8, 6, 0),
+            decoration: new BoxDecoration(
+              color: Colors.white,
             ),
-            child: SafeArea(
-              child: SearchBar(
+            child: new SafeArea(
+              child: new SearchBar(
                 searchBarType: SearchBarType.homeLight,
-                inputBoxClick: _jumpToSearch,
                 defaultText: defaultText,
-                speakClick: _jumpToSpeak,
                 hintList: hotKeyWords,
                 isUserIcon: true,
+                inputBoxClick: _jumpToSearch,
+                speakClick: _jumpToSpeak,
                 rightButtonClick: _jumpToUser,
               ),
             ),
           ),
-          Container(
+          new Container(
             color: Colors.white,
-            padding: EdgeInsets.only(left: 2),
-            child: TabBar(
+            padding: new EdgeInsets.only(left: 2),
+            child: new TabBar(
               controller: _controller,
               isScrollable: true,
               labelColor: Colors.black,
-              labelPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
-              indicatorColor: Color(0xff2FCFBB),
+              labelPadding: new EdgeInsets.fromLTRB(8, 6, 8, 0),
+              indicatorColor: new Color(0xff2FCFBB),
               indicatorPadding: EdgeInsets.all(6),
               indicatorSize: TabBarIndicatorSize.label,
               indicatorWeight: 2.2,
-              labelStyle: TextStyle(fontSize: 18),
-              unselectedLabelStyle: TextStyle(fontSize: 15),
+              labelStyle: new TextStyle(fontSize: 18),
+              unselectedLabelStyle: new TextStyle(fontSize: 15),
               tabs: tabs.map<Tab>((Groups tab) {
-                return Tab(
+                return new Tab(
                   text: tab.name,
                 );
               }).toList(),
             ),
           ),
-          Flexible(
-              child: Container(
-            padding: EdgeInsets.fromLTRB(6, 3, 6, 0),
-            child: TabBarView(
+          new Flexible(
+            child: new Container(
+              padding: new EdgeInsets.fromLTRB(6, 3, 6, 0),
+              child: new TabBarView(
                 controller: _controller,
                 children: tabs.map((Groups tab) {
-                  return TravelTabPage(
+                  return new TravelTabPage(
                     travelUrl: travelParamsModel?.url,
                     params: travelParamsModel?.params,
                     groupChannelCode: tab?.code,
                   );
-                }).toList()),
-          )),
+                }).toList(),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -103,7 +107,11 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
   }
 
   _jumpToSpeak() {
-    NavigatorUtil.push(context, SpeakPage(pageType: 'travel',));
+    NavigatorUtil.push(
+        context,
+        SpeakPage(
+          pageType: 'travel',
+        ));
   }
 
   void _jumpToSearch() {
@@ -120,7 +128,8 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
     NavigatorUtil.push(
       context,
       WebView(
-        url: 'https://m.ctrip.com/webapp/you/tripshoot/user/home?seo=0&isHideHeader=true&isHideNavBar=YES&navBarStyle=white',
+        url:
+            'https://m.ctrip.com/webapp/you/tripshoot/user/home?seo=0&isHideHeader=true&isHideNavBar=YES&navBarStyle=white',
         hideHead: false,
         hideAppBar: false,
         title: '我的旅拍',
@@ -139,7 +148,7 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
     });
   }
 
-  void _loadTab(){
+  void _loadTab() {
     TravelTabDao.fetch().then((TravelTabModel model) {
       _controller = TabController(
           length: model.district.groups.length,
@@ -154,7 +163,7 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
   }
 
   void _loadHotKeyword() {
-    TravelHotKeywordDao.fetch().then((TravelHotKeywordModel model){
+    TravelHotKeywordDao.fetch().then((TravelHotKeywordModel model) {
       setState(() {
         travelHotKeywordModel = model;
         hotKeyWords = travelHotKeywordModel.hotKeyword;

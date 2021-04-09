@@ -8,11 +8,12 @@ import 'package:flutter_ctrip/util/navigator_util.dart';
 import 'package:flutter_ctrip/widget/search_bar.dart';
 import 'package:flutter_ctrip/widget/webview.dart';
 
-const TYPES = [
+
+const List<String> TYPES = [
   'D',
   'SS',
 ];
-const URL =
+const String URL =
     'https://sec-m.ctrip.com/restapi/soa2/13558/mobileSuggestV2?_fxpcqlniredt=09031043410934928682';
 
 class DestinationSearchPage extends StatefulWidget {
