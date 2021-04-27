@@ -36,7 +36,7 @@ class _GridNavNewState extends State<GridNavNew> {
                           context,
                           new WebView(
                             url:
-                                "https://m.ctrip.com/webapp/hotel/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
+                            "https://m.ctrip.com/webapp/hotel/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                             hideAppBar: true,
                           ));
                     },
@@ -83,7 +83,7 @@ class _GridNavNewState extends State<GridNavNew> {
                             context,
                             new WebView(
                               url:
-                                  "https://m.ctrip.com/webapp/inn-v2/home?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
+                              "https://m.ctrip.com/webapp/inn-v2/home?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                               hideAppBar: true,
                             )
                         );
@@ -106,6 +106,55 @@ class _GridNavNewState extends State<GridNavNew> {
                               fit: BoxFit.contain,
                               alignment: AlignmentDirectional.bottomStart,
                             ),
+                            new Container(
+                              alignment: AlignmentDirectional.center,
+                              child: new Text(
+                                "民宿·客栈",
+                                style: new TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  new Expanded(
+                    flex: 2,
+                    child: new GestureDetector(
+                      onTap: () {
+                        NavigatorUtil.push(
+                          context,
+                          new WebView(
+                            url: "https://m.ctrip.com/webapp/vacations/idiytour/newindex?sourcefrom=h5_xingongge&title=%E6%9C%BA%E7%A5%A8%E3%83%BB%E7%81%AB%E8%BD%A6%E7%A5%A8%2B%E9%85%92%E5%BA%97&isHideNavBar=YES&secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
+                            hideAppBar: true,
+                          ),
+                        );
+                      },
+                      child: new Container(
+                        decoration: new BoxDecoration(
+                          gradient: new LinearGradient(
+                              colors: <Color>[
+                                new Color(0xfffa5956),
+                                new Color(0xffef9c76).withAlpha(45),
+                              ]
+                          ),
+                        ),
+                        child: new Row(
+                          children: <Widget>[
+                            new GestureDetector(
+                              onTap: () {
+                                NavigatorUtil.push(
+                                  context,
+                                  new WebView(
+                                    url: "https://m.ctrip.com/webapp/hotel/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
+                                    hideAppBar: true,
+                                  )
+                                );
+                              },
+                            )
                           ],
                         ),
                       ),

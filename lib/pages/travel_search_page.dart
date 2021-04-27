@@ -438,7 +438,11 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
   }
 
   _jumpToSpeak() {
-    NavigatorUtil.push(context, SpeakPage(pageType: 'travel',));
+    NavigatorUtil.push(
+        context,
+        SpeakPage(
+          pageType: 'travel',
+        ));
   }
 
   _onTextChange(String text) {

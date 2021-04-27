@@ -4,6 +4,9 @@ A new Flutter application.
 
 ## Getting Started
 
+- TODO 按照模块重构, 让其复用性加强;
+- TODO 
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
