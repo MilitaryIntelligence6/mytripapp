@@ -29,12 +29,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double appBarAlpha = 0;
-  List<CommonModel> localNavList = [];
+  List<CommonModel> localNavList = new List<CommonModel>();
   GridNavModel gridNavModel;
-  List<CommonModel> subNavList = [];
+  List<CommonModel> subNavList = new List<CommonModel>();
   SalesBoxModel salesBoxModel;
   bool _isLoading = true;
-  List<CommonModel> bannerList = [];
+  List<CommonModel> bannerList = new List<CommonModel>();
 
   @override
   void initState() {

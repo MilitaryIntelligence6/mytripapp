@@ -23,6 +23,7 @@ class CommonModel {
     data['icon'] = this.icon;
     data['title'] = this.title;
     data['url'] = this.title;
+    
     data['statusBarColor'] = this.title;
     data['hideAppBar'] = this.title;
     return data;

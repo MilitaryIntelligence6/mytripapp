@@ -64,7 +64,13 @@ class _SpeakPageState extends State<SpeakPage>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              isVTop ? _topItem() : isStart ? _startTip() : !isUnResult ? _topTip() : Container(),
+              isVTop
+                  ? _topItem()
+                  : isStart
+                  ? _startTip()
+                  : !isUnResult
+                  ? _topTip()
+                  : const SizedBox.shrink(),
               _bottomItem()
             ],
           ),
@@ -73,7 +79,7 @@ class _SpeakPageState extends State<SpeakPage>
     );
   }
 
-  _speakStart() {
+  void _speakStart() {
     controller.forward();
     setState(() {
       speakTips = '松开完成';
@@ -127,7 +133,7 @@ class _SpeakPageState extends State<SpeakPage>
     });
   }
 
-  _speakStop() {
+  void _speakStop() {
     setState(() {
       speakTips = '长按说话';
       isStart = false;
@@ -137,10 +143,10 @@ class _SpeakPageState extends State<SpeakPage>
     AsrManager.stop();
   }
 
-  _startTip() {
-    return Column(
+  Widget _startTip() {
+    return new Column(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 10),
         ),
         Image.network(
@@ -148,10 +154,10 @@ class _SpeakPageState extends State<SpeakPage>
           height: 80,
           width: 80,
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 10),
         ),
-        Text('正在听您说...',
+        new Text('正在听您说...',
             style: TextStyle(
                 fontSize: 16,
                 color: Colors.black.withAlpha(180),
@@ -160,29 +166,29 @@ class _SpeakPageState extends State<SpeakPage>
     );
   }
 
-  _topTip() {
+  Widget _topTip() {
     return Column(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 10),
         ),
-        Image.network(
+        new Image.network(
           'https://pages.c-ctrip.com/you/livestream/lvpai_you_img2.png',
           height: 80,
           width: 80,
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 10),
         ),
-        Text('你好像没有说话',
+        new Text('你好像没有说话',
             style: TextStyle(
                 fontSize: 16,
                 color: Colors.black.withAlpha(180),
                 letterSpacing: 1.2)),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 8),
         ),
-        Text('请按住话筒重新开始',
+        new Text('请按住话筒重新开始',
             style: TextStyle(
                 fontSize: 14,
                 color: Colors.black.withAlpha(100),
@@ -191,14 +197,14 @@ class _SpeakPageState extends State<SpeakPage>
     );
   }
 
-  _topItem() {
-    return Column(
+  Widget _topItem() {
+    return new Column(
       children: <Widget>[
-        Padding(
-          padding: EdgeInsets.fromLTRB(0, 30, 0, 26),
-          child: Text(
+        new Padding(
+          padding: const EdgeInsets.fromLTRB(0, 30, 0, 26),
+          child: new Text(
             '你可以这样说',
-            style: TextStyle(
+            style: new TextStyle(
               fontSize: 16,
               color: Colors.black.withAlpha(180),
             ),
@@ -219,7 +225,7 @@ class _SpeakPageState extends State<SpeakPage>
     );
   }
 
-  _textItem(String text) {
+  Widget _textItem(String text) {
     return Container(
       padding: EdgeInsets.only(bottom: 6),
       child: Text(text,
@@ -231,7 +237,7 @@ class _SpeakPageState extends State<SpeakPage>
     );
   }
 
-  _bottomItem() {
+  Widget _bottomItem() {
     return Stack(
       children: <Widget>[
         GestureDetector(
@@ -244,7 +250,7 @@ class _SpeakPageState extends State<SpeakPage>
           onTapCancel: () {
             _speakStop();
           },
-          child: Row(
+          child: new Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

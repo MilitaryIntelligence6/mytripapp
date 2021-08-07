@@ -31,16 +31,20 @@ class _TabNavigatorState extends State<TabNavigator>
   }
 
   @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
+
+  @override
   // ignore: must_call_super
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         controller: _controller,
         children: <Widget>[
-          HomePage(),
-          DestinationPage(),
-          TravelPage(),
-          MyPage(),
+          new HomePage(),
+          new DestinationPage(),
+          new TravelPage(),
+          new MyPage(),
         ],
         physics: NeverScrollableScrollPhysics(),
       ),
@@ -134,7 +138,9 @@ class _TabNavigatorState extends State<TabNavigator>
     );
   }
 
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
+  Color _requireShouldBeColor(int pageIndex) {
+    return _currentIndex == pageIndex
+        ? _activeColor
+        : _defaultColor;
+  }
 }

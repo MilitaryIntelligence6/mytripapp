@@ -255,7 +255,7 @@ class _DestinationPageState extends State<DestinationPage>
           }
         }
         // 处理数据 每3条数据放到一个row容器
-        List<Widget> rowList = [];
+        List<Widget> rowList = new List<Widget>();
         if (imageItems.length % 3 == 1) {
           imageItems.add(Expanded(child: Container()));
           imageItems.add(Expanded(child: Container()));

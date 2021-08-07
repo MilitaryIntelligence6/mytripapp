@@ -1,10 +1,12 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 
+/// TODO 分模块, 而不是按架构;
 import 'navigator/tab_navigater.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   @override
