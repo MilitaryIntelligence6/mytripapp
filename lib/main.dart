@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'FCtrip',
+      title: 'MISectionTrip',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'PingFang',

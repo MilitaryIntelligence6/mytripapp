@@ -1,5 +1,5 @@
 include ':app'
-include 'baiduspeechcore'
+include 'asr_plugin'
 
 def localPropertiesFile = new File(rootProject.projectDir, "local.properties")
 def properties = new Properties()
