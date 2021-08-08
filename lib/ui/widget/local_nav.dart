@@ -43,7 +43,7 @@ class LocalNav extends StatelessWidget {
   Widget _item(BuildContext context, CommonModel model) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MyWebView(
+        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MyWebView(
           url: model.url,
           statusBarColor: model.statusBarColor,
           hideAppBar: model.hideAppBar,

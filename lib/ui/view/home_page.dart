@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                                         context,
                                         // push 是方法, 必须把路由也传进去;
                                         new MaterialPageRoute(
-                                          builder: (context) => new MyWebView(
+                                          builder: (BuildContext context) => new MyWebView(
                                             // 点击图片跳转的url, 如果没有, 点的动, 但会一直转圈
                                             // 不会有回应, 一直loading;
                                             url: model.url,
@@ -264,7 +264,7 @@ class _HomePageState extends State<HomePage> {
     Navigator.push(
       context,
       new MaterialPageRoute(
-        builder: (context) => new SearchPage(
+        builder: (BuildContext context) => new SearchPage(
           hint: SEARCH_BAR_DEFAULT_TEXT,
           hideLeft: false,
         ),

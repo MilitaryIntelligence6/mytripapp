@@ -61,7 +61,7 @@ class SubNav extends StatelessWidget {
           Navigator.push(
             context,
             new MaterialPageRoute(
-              builder: (context) =>
+              builder: (BuildContext context) =>
               new MyWebView(
                 url: model.url,
                 statusBarColor: model.statusBarColor,

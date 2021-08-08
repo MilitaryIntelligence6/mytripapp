@@ -45,7 +45,7 @@ class SalesBox extends StatelessWidget {
                   Navigator.push(
                     context,
                     new MaterialPageRoute(
-                      builder: (context) => new MyWebView(
+                      builder: (BuildContext context) => new MyWebView(
                         url: salesBoxModel.moreUrl,
                         title: "更多活动",
                       ),
@@ -112,7 +112,7 @@ class SalesBox extends StatelessWidget {
           Navigator.push(
             context,
             new MaterialPageRoute(
-              builder: (context) => new MyWebView(
+              builder: (BuildContext context) => new MyWebView(
                 url: model.url,
                 title: model.title ?? "活动",
               ),

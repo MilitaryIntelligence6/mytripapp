@@ -412,7 +412,7 @@ class _DestinationSearchPageState extends State<DestinationSearchPage> {
     Navigator.push(
       context,
       new MaterialPageRoute(
-        builder: (context) => new MyWebView(
+        builder: (BuildContext context) => new MyWebView(
           url: url,
           hideAppBar: true,
         ),
