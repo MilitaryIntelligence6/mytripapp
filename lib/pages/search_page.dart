@@ -1,29 +1,29 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_ctrip/dao/search_dao.dart';
-import 'package:flutter_ctrip/model/seach_model.dart';
-import 'package:flutter_ctrip/pages/speak_page.dart';
-import 'package:flutter_ctrip/util/navigator_util.dart';
-import 'package:flutter_ctrip/widget/search_bar.dart';
-import 'package:flutter_ctrip/widget/webview.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
+import "package:flutter_ctrip/dao/search_dao.dart";
+import "package:flutter_ctrip/model/seach_model.dart";
+import "package:flutter_ctrip/pages/speak_page.dart";
+import "package:flutter_ctrip/util/navigator_util.dart";
+import "package:flutter_ctrip/widget/search_bar.dart";
+import "package:flutter_ctrip/widget/webview.dart";
 
 const TYPES = [
-  'channelgroup',
-  'gs',
-  'plane',
-  'train',
-  'cruise',
-  'district',
-  'food',
-  'hotel',
-  'huodong',
-  'shop',
-  'sight',
-  'ticket',
-  'travelgroup'
+  "channelgroup",
+  "gs",
+  "plane",
+  "train",
+  "cruise",
+  "district",
+  "food",
+  "hotel",
+  "huodong",
+  "shop",
+  "sight",
+  "ticket",
+  "travelgroup"
 ];
 const URL =
-    'http://m.ctrip.com/restapi/h5api/globalsearch/search?source=mobileweb&action=mobileweb&keyword=';
+    "http://m.ctrip.com/restapi/h5api/globalsearch/search?source=mobileweb&action=mobileweb&keyword=";
 
 class SearchPage extends StatefulWidget {
   final bool hideLeft;
@@ -31,7 +31,11 @@ class SearchPage extends StatefulWidget {
   final String keyword;
   final String hint;
 
-  SearchPage({this.hideLeft = true, this.searchUrl = URL, this.keyword, this.hint="目的地 | 酒店 | 景点 | 航班号"});
+  SearchPage(
+      {this.hideLeft = true,
+      this.searchUrl = URL,
+      this.keyword,
+      this.hint = "目的地 | 酒店 | 景点 | 航班号"});
 
   @override
   _SearchPageState createState() => _SearchPageState();
@@ -76,31 +80,31 @@ class _SearchPageState extends State<SearchPage> {
   Widget _item(int position) {
     if (searchModel == null || searchModel.data == null) return null;
     SearchItem item = searchModel.data[position];
-    return GestureDetector(
+    return new GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
-            builder: (context) => WebView(
+          new MaterialPageRoute(
+            builder: (context) => new WebView(
               url: item.url,
-              title: '详情',
+              title: "详情",
             ),
           ),
         );
       },
-      child: Container(
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(width: 0.3, color: Colors.grey))),
-        child: Row(
+      child: new Container(
+        padding: const EdgeInsets.all(10),
+        decoration: const BoxDecoration(
+            border: const Border(bottom: const BorderSide(width: 0.3, color: Colors.grey))),
+        child: new Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(1),
-              child: Image(
+            new Container(
+              margin: const EdgeInsets.all(1),
+              child: new Image(
                   height: 26,
                   width: 26,
-                  image: AssetImage(_typeImage(item.type))),
+                  image: new AssetImage(_typeImage(item.type))),
             ),
             new Column(
               children: <Widget>[
@@ -182,15 +186,15 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   String _typeImage(String type) {
-    if (type == null) return 'images/type_travelgroup.png';
-    String path = 'travelgroup';
+    if (type == null) return "images/type_travelgroup.png";
+    String path = "travelgroup";
     for (final val in TYPES) {
       if (type.contains(val)) {
         path = val;
         break;
       }
     }
-    return 'images/type_$path.png';
+    return "images/type_$path.png";
   }
 
   Widget _title(SearchItem item) {
@@ -200,7 +204,7 @@ class _SearchPageState extends State<SearchPage> {
     List<TextSpan> spans = new List<TextSpan>();
     spans.addAll(_keywordTextSpans(item.word, searchModel.keyword));
     spans.add(TextSpan(
-        text: ' ' + (item.districtname ?? '') + ' ' + (item.zonename ?? ''),
+        text: " " + (item.districtname ?? "") + " " + (item.zonename ?? ""),
         style: const TextStyle(fontSize: 16, color: Colors.grey)));
     return new RichText(text: new TextSpan(children: spans));
   }
@@ -209,19 +213,19 @@ class _SearchPageState extends State<SearchPage> {
     return new RichText(
       text: new TextSpan(children: <TextSpan>[
         new TextSpan(
-          text: item.price ?? '',
+          text: item.price ?? "",
           style: const TextStyle(fontSize: 16, color: Colors.orange),
         ),
         new TextSpan(
-          text: ' ' + (item.star ?? ''),
+          text: " " + (item.star ?? ""),
           style: TextStyle(fontSize: 12, color: Colors.grey),
         )
       ]),
     );
   }
 
-  _keywordTextSpans(String word, String keyword) {
-    List<TextSpan> spans = [];
+  List<TextSpan> _keywordTextSpans(String word, String keyword) {
+    List<TextSpan> spans = new List<TextSpan>();
     if (word == null || word.length == 0) return spans;
     String wordL = word.toLowerCase(), keywordL = keyword.toLowerCase();
     List<String> arr = wordL.split(keywordL);
@@ -243,11 +247,13 @@ class _SearchPageState extends State<SearchPage> {
     return spans;
   }
 
-  _isSubTitle(SearchItem item) {
-    return item.price!=null?Container(
-      width: 300,
-      margin: EdgeInsets.only(top: 5),
-      child: _subTitle(item),
-    ):Container();
+  Widget _isSubTitle(SearchItem item) {
+    return item.price != null
+        ? Container(
+            width: 300,
+            margin: EdgeInsets.only(top: 5),
+            child: _subTitle(item),
+          )
+        : const SizedBox.shrink();
   }
 }
