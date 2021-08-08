@@ -334,38 +334,38 @@ class _DestinationSearchPageState extends State<DestinationSearchPage> {
     if(dataType == "D") icon = "images/lvpai_issue_position.png";
     if(dataType == "") icon = "images/lvpai_search_list.png";
     if(dataType == "SS") icon = "images/lvpai_issue_sight.png";
-    return GestureDetector(
+    return new GestureDetector(
       onTap: () {
         _jumpToSearch("https://m.ctrip.com/webapp/vacations/tour/list?kwd=${searchName}&kwdfrom=assword&poid=${poid.toString()}&poitype=D&salecity=2&scity=2&searchtype=all&tab=126");
       },
-      child: Container(
-        padding: EdgeInsets.all(12),
-        decoration: BoxDecoration(
+      child: new Container(
+        padding: const EdgeInsets.all(12),
+        decoration: new BoxDecoration(
             border:
-            Border(bottom: BorderSide(width: 0.3, color: Colors.grey))),
-        child: Row(
+            const Border(bottom: BorderSide(width: 0.3, color: Colors.grey))),
+        child: new Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(right: 8),
-              child: Image(
+            new Container(
+              margin: const EdgeInsets.only(right: 8),
+              child: new Image(
                 height: 16,
                 width: 16,
-                image: AssetImage(icon),
+                image: new AssetImage(icon),
               ),
             ),
-            Expanded(
-              child: Container(
-                child: Wrap(
+            new Expanded(
+              child: new Container(
+                child: new Wrap(
                   children: <Widget>[
                     _title(searchName),
-                    Padding(
-                      padding: EdgeInsets.only(right: 6),
+                    new Padding(
+                      padding: const EdgeInsets.only(right: 6),
                     ),
-                    Text(
+                    new Text(
                       upperName,
-                      style: TextStyle(
-                        color: Color(0xff999999),
+                      style: const TextStyle(
+                        color: const Color(0xff999999),
                       ),
                     ),
                   ],
@@ -387,8 +387,8 @@ class _DestinationSearchPageState extends State<DestinationSearchPage> {
   void _jumpToSearch(String url) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => WebView(
+      new MaterialPageRoute(
+        builder: (context) => new WebView(
           url: url,
           hideAppBar: true,
         ),
