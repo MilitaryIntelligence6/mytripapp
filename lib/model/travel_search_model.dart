@@ -87,8 +87,8 @@ class Result {
     moduleType = json['moduleType'];
     if (json['items'] != null) {
       items = new List<Items>();
-      json['items'].forEach((v) {
-        items.add(new Items.fromJson(v));
+      json['items'].forEach((element) {
+        items.add(new Items.fromJson(element));
       });
     }
   }
