@@ -6,13 +6,13 @@ import "package:flutter_ctrip/dao/travel_tab_dao.dart";
 import "package:flutter_ctrip/model/travel_hot_keyword_model.dart";
 import "package:flutter_ctrip/model/travel_params_model.dart";
 import "package:flutter_ctrip/model/travel_tab_model.dart";
-import "package:flutter_ctrip/pages/page_type.dart";
-import "package:flutter_ctrip/pages/speak_page.dart";
-import "package:flutter_ctrip/pages/travel_search_page.dart";
-import "package:flutter_ctrip/pages/travel_tab_page.dart";
+import "package:flutter_ctrip/ui/view/page_type.dart";
+import "package:flutter_ctrip/ui/view/speak_page.dart";
+import "package:flutter_ctrip/ui/view/travel_search_page.dart";
+import "package:flutter_ctrip/ui/view/travel_tab_page.dart";
 import "package:flutter_ctrip/util/navigator_util.dart";
-import "package:flutter_ctrip/widget/search_bar.dart";
-import "package:flutter_ctrip/widget/webview.dart";
+import "package:flutter_ctrip/ui/widget/search_bar.dart";
+import "package:flutter_ctrip/ui/widget/webview.dart";
 
 class TravelPage extends StatefulWidget {
   @override

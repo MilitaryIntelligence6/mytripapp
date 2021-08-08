@@ -75,7 +75,7 @@ class SidePageView extends StatefulWidget {
   /// If non given the body uses the default value for [PageView].
   final ScrollPhysics physics;
 
-  /// Called after the [PageView] reports a change of pages.
+  /// Called after the [PageView] reports a change of ui.pages.
   final ValueChanged<int> onPageChanged;
 
   /// Builder objects for the title
@@ -113,7 +113,6 @@ class _SidePageViewState extends State<SidePageView> {
   double _step = 0;
 
   double _controllerAnimationValue = 0.0;
-
 
   @override void initState() {
     super.initState();

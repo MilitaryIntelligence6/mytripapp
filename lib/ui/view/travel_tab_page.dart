@@ -3,8 +3,8 @@ import "package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart";
 import "package:flutter_ctrip/dao/travel_dao.dart";
 import "package:flutter_ctrip/model/travel_model.dart";
 import "package:flutter_ctrip/util/navigator_util.dart";
-import "package:flutter_ctrip/widget/loading_container.dart";
-import "package:flutter_ctrip/widget/webview.dart";
+import "package:flutter_ctrip/ui/widget/loading_container.dart";
+import "package:flutter_ctrip/ui/widget/webview.dart";
 import "package:flutter_spinkit/flutter_spinkit.dart";
 
 class TravelTabPage extends StatefulWidget {

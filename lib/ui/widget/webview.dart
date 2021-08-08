@@ -3,7 +3,7 @@ import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 import "package:flutter/services.dart";
 import "package:flutter/widgets.dart";
-import "package:flutter_ctrip/widget/loading_container.dart";
+import "package:flutter_ctrip/ui/widget/loading_container.dart";
 import "package:flutter_webview_plugin/flutter_webview_plugin.dart";
 
 class MyWebView extends StatefulWidget {

@@ -8,10 +8,10 @@
  * http://coding.imooc.com/learn/qa/321.html
  */
 import "package:flutter/material.dart";
-import "package:flutter_ctrip/pages/destination_search_page.dart";
-import "package:flutter_ctrip/pages/page_type.dart";
-import "package:flutter_ctrip/pages/search_page.dart";
-import "package:flutter_ctrip/pages/travel_search_page.dart";
+import "package:flutter_ctrip/ui/view/destination_search_page.dart";
+import "package:flutter_ctrip/ui/view/page_type.dart";
+import "package:flutter_ctrip/ui/view/search_page.dart";
+import "package:flutter_ctrip/ui/view/travel_search_page.dart";
 import "package:flutter_ctrip/plugin/asr_manager.dart";
 import "package:flutter_ctrip/util/navigator_util.dart";
 
@@ -199,7 +199,7 @@ class _SpeakPageState extends State<SpeakPage>
           padding: EdgeInsets.only(top: 10),
         ),
         new Image.network(
-          "https://pages.c-ctrip.com/you/livestream/lvpai_you_img2.png",
+          "https://ui.pages.c-ctrip.com/you/livestream/lvpai_you_img2.png",
           height: 80,
           width: 80,
         ),

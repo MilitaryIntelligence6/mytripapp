@@ -1,7 +1,7 @@
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_ctrip/util/navigator_util.dart";
-import "package:flutter_ctrip/widget/webview.dart";
+import "package:flutter_ctrip/ui/widget/webview.dart";
 
 /// 格子视图, 就是酒店机票旅游那里;
 class GridNavNew extends StatefulWidget {

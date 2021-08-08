@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 
 enum IndicatorSide { start, end }
 
-/// A vertical tab widget for flutter
+/// A vertical tab ui.widget for flutter
 class VerticalTabView extends StatefulWidget {
   final Key key;
   final int initialIndex;
@@ -96,11 +96,11 @@ class _VerticalTabViewState extends State<VerticalTabView>
   Widget build(BuildContext context) {
 //    Border border = Border(
 //        right: BorderSide(
-//            width: 0.5, color: widget.dividerColor));
-//    if (widget.direction == TextDirection.rtl) {
+//            width: 0.5, color: ui.widget.dividerColor));
+//    if (ui.widget.direction == TextDirection.rtl) {
 //      border = Border(
 //          left: BorderSide(
-//              width: 0.5, color: widget.dividerColor));
+//              width: 0.5, color: ui.widget.dividerColor));
 //    }
 
     return Directionality(

@@ -3,11 +3,11 @@ import "package:flutter_ctrip/dao/destination_search_dao.dart";
 import "package:flutter_ctrip/dao/search_dao.dart";
 import "package:flutter_ctrip/model/destination_search_model.dart";
 import "package:flutter_ctrip/model/seach_model.dart";
-import "package:flutter_ctrip/pages/page_type.dart";
-import "package:flutter_ctrip/pages/speak_page.dart";
+import "package:flutter_ctrip/ui/view/page_type.dart";
+import "package:flutter_ctrip/ui/view/speak_page.dart";
 import "package:flutter_ctrip/util/navigator_util.dart";
-import "package:flutter_ctrip/widget/search_bar.dart";
-import "package:flutter_ctrip/widget/webview.dart";
+import "package:flutter_ctrip/ui/widget/search_bar.dart";
+import "package:flutter_ctrip/ui/widget/webview.dart";
 
 
 const List<String> TYPES = [

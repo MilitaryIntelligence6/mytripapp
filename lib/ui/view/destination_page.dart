@@ -2,15 +2,15 @@ import "package:flutter/material.dart";
 import "package:flutter/services.dart";
 import "package:flutter_ctrip/dao/destination_dao.dart";
 import "package:flutter_ctrip/model/destination_model.dart";
-import "package:flutter_ctrip/pages/destination_search_page.dart";
-import "package:flutter_ctrip/pages/page_type.dart";
-import "package:flutter_ctrip/pages/speak_page.dart";
+import "package:flutter_ctrip/ui/view/destination_search_page.dart";
+import "package:flutter_ctrip/ui/view/page_type.dart";
+import "package:flutter_ctrip/ui/view/speak_page.dart";
 import "package:flutter_ctrip/plugin/vertical_tab_view.dart";
 import "package:flutter_ctrip/util/navigator_util.dart";
-import "package:flutter_ctrip/widget/scalable_box.dart";
-import "package:flutter_ctrip/widget/search_bar.dart";
-import "package:flutter_ctrip/widget/loading_container.dart";
-import "package:flutter_ctrip/widget/webview.dart";
+import "package:flutter_ctrip/ui/widget/scalable_box.dart";
+import "package:flutter_ctrip/ui/widget/search_bar.dart";
+import "package:flutter_ctrip/ui/widget/loading_container.dart";
+import "package:flutter_ctrip/ui/widget/webview.dart";
 
 const DEFAULT_TEXT = "目的地 | 主题 | 关键字";
 

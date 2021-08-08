@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_ctrip/model/common_model.dart";
 import "package:flutter_ctrip/model/sales_box_model.dart";
-import "package:flutter_ctrip/widget/webview.dart";
+import "package:flutter_ctrip/ui/widget/webview.dart";
 
 class SalesBox extends StatelessWidget {
   final SalesBoxModel salesBoxModel;

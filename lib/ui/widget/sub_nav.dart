@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_ctrip/model/common_model.dart";
-import "package:flutter_ctrip/widget/webview.dart";
+import "package:flutter_ctrip/ui/widget/webview.dart";
 
 class SubNav extends StatelessWidget {
   final List<CommonModel> subNavList;

@@ -107,7 +107,7 @@ class _TestPageState extends State<TestPage> {
       builder: (_,Widget child) {
         final keyContext = stickyKey.currentContext;
         if (keyContext != null) {
-          // widget is visible
+          // ui.widget is visible
           final box = keyContext.findRenderObject() as RenderBox;
           print(box.size);
           final pos = box.localToGlobal(Offset.zero);
