@@ -156,6 +156,9 @@ class _SearchPageState extends State<SearchPage> {
                 onLeftButtonClicked: () {
                   Navigator.pop(context);
                 },
+                onRightButtonClicked: () {
+
+                },
                 onChanged: _onTextChange,
                 onSpeakButtonClicked: _jumpToSpeak,
               )),

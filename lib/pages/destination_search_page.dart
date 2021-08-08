@@ -105,15 +105,13 @@ class _DestinationSearchPageState extends State<DestinationSearchPage> {
               ),
               child: new SearchBar(
                 hideLeft: widget.hideLeft,
+                hideRight: false,
                 defaultText: widget.keyword,
                 hint: widget.hint,
                 onLeftButtonClicked: () {
                   Navigator.pop(context);
                 },
                 onRightButtonClicked: () {
-                  // if (widget.keyword == null || widget.keyword == "") {
-                  //   return;
-                  // }
                   if (keyword.length == null || keyword.length == 0) {
                     return;
                   }

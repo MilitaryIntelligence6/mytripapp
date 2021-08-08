@@ -11,6 +11,7 @@ enum SearchBarType {
 class SearchBar extends StatefulWidget {
   final bool enabled;
   final bool hideLeft;
+  final bool hideRight;
   final bool isUserIcon;
   final bool rightIcon;
   final SearchBarType searchBarType;
@@ -26,9 +27,10 @@ class SearchBar extends StatefulWidget {
   const SearchBar(
       {Key key,
       this.enabled = true,
-      this.isUserIcon: false,
-      this.rightIcon: false,
+      this.isUserIcon = false,
+      this.rightIcon = false,
       this.hideLeft,
+      this.hideRight,
       this.searchBarType = SearchBarType.normal,
       this.hint,
       this.defaultText,
@@ -68,39 +70,39 @@ class _SearchBarState extends State<SearchBar> {
   Widget _genNormalSearch() {
     return new Container(
       child: new Row(children: <Widget>[
-        _wrapTap(
-            Container(
+        InkWell(
+            child: Container(
               padding: EdgeInsets.fromLTRB(6, 5, 10, 5),
               child: widget?.hideLeft ?? false
-                  ? null
+                  ? const SizedBox.shrink()
                   : Icon(
                       Icons.arrow_back_ios,
                       color: Colors.grey,
                       size: 24,
                     ),
             ),
-            widget.onLeftButtonClicked),
+            onTap: widget.onLeftButtonClicked),
         Expanded(
           flex: 1,
           child: _inputBox(),
         ),
-        _wrapTap(
-            new Container(
+        InkWell(
+            child: new Container(
               padding: const EdgeInsets.symmetric(
                 vertical: 5,
                 horizontal: 10,
               ),
-              child: const Text(
-                "搜索",
-                style: TextStyle(color: Colors.blue, fontSize: 17),
-              ),
+              child: widget.hideRight ?? true
+                  ? const SizedBox.shrink()
+                  : const Text("搜索",
+                  style: TextStyle(color: Colors.blue, fontSize: 17))
             ),
-            widget.onRightButtonClicked)
+            onTap: widget.onRightButtonClicked)
       ]),
     );
   }
 
-  _genHomeSearch() {
+  Widget _genHomeSearch() {
     String sMessage;
     if (widget.searchBarType == SearchBarType.home) {
       sMessage = "images/xiaoxi_white.png";
@@ -113,13 +115,14 @@ class _SearchBarState extends State<SearchBar> {
           flex: 1,
           child: _inputBox(),
         ),
-        _wrapTap(
-            widget.rightIcon
-                ? rightIcon("images/kefu.png")
+        new InkWell(
+            child: widget.rightIcon
+                ? _rightIcon("images/kefu.png")
                 : widget.isUserIcon
-                    ? rightIcon("images/user1.png")
-                    : rightIcon(sMessage),
-            widget.onRightButtonClicked),
+                    ? _rightIcon("images/user1.png")
+                    : _rightIcon(sMessage),
+            onTap: widget.onRightButtonClicked
+        ),
       ]),
     );
   }
@@ -222,7 +225,7 @@ class _SearchBarState extends State<SearchBar> {
     );
   }
 
-  _wrapTap(Widget child, void Function() callback) {
+  Widget _wrapTap(Widget child, void Function() callback) {
     return new GestureDetector(
       onTap: () {
         if (callback != null) callback();
@@ -246,13 +249,13 @@ class _SearchBarState extends State<SearchBar> {
     }
   }
 
-  _homeFontColor() {
+  Color _homeFontColor() {
     return widget.searchBarType == SearchBarType.homeLight
         ? Colors.black54
         : Colors.white;
   }
 
-  rightIcon(String icon) {
+  Widget _rightIcon(String icon) {
     return Container(
       padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
       child: Image.asset(

@@ -37,24 +37,25 @@ class _MyWebViewState extends State<MyWebView> {
     "m.ctrip.com/webapp/vacations/tour/list"
   ];
 
-  final FlutterWebviewPlugin webViewReference = new FlutterWebviewPlugin();
+  final FlutterWebviewPlugin webViewPluginRef = new FlutterWebviewPlugin();
   StreamSubscription<String> _onUrlChanged;
   StreamSubscription<WebViewStateChanged> _onStateChanged;
   StreamSubscription<WebViewHttpError> _onHttpError;
   bool exiting = false;
 
+
   @override
   void initState() {
-    webViewReference.close();
+    webViewPluginRef.close();
     print(widget.url);
-    _onUrlChanged = webViewReference.onUrlChanged.listen((String url) {});
+    _onUrlChanged = webViewPluginRef.onUrlChanged.listen((String url) {});
     _onStateChanged =
-        webViewReference.onStateChanged.listen((WebViewStateChanged state) {
+        webViewPluginRef.onStateChanged.listen((WebViewStateChanged state) {
       switch (state.type) {
         case WebViewState.startLoad:
           if (_isToMain(state.url) && !exiting) {
             if (widget.backForbid) {
-              webViewReference.launch(widget.url);
+              webViewPluginRef.launch(widget.url);
             } else {
               Navigator.pop(context);
               exiting = true;
@@ -65,7 +66,7 @@ class _MyWebViewState extends State<MyWebView> {
           break;
       }
     });
-    _onHttpError = webViewReference.onHttpError.listen((event) {});
+    _onHttpError = webViewPluginRef.onHttpError.listen((event) {});
     super.initState();
   }
 
@@ -74,7 +75,7 @@ class _MyWebViewState extends State<MyWebView> {
     _onUrlChanged.cancel();
     _onStateChanged.cancel();
     _onHttpError.cancel();
-    webViewReference.dispose();
+    webViewPluginRef.dispose();
     super.dispose();
   }
 

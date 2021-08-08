@@ -85,10 +85,36 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
               ),
               child: new SearchBar(
                 hideLeft: widget.hideLeft,
+                hideRight: false,
                 hint: widget.hint,
                 defaultText: widget.keyword,
                 onLeftButtonClicked: () {
                   Navigator.pop(context);
+                },
+                onRightButtonClicked: () {
+                  bool showWebView = false;
+                  for (int i = 0; i <itemsList.length; ++i) {
+                    if (itemsList[i].title == keyword?.trim() ?? false) {
+                      showWebView = true;
+                      NavigatorUtil.push(
+                          context,
+                          new MyWebView(
+                            title: keyword,
+                            url: "https://m.ctrip.com/webapp/you/tripshoot/user/home?seo=0&clientAuth=" +
+                                keyword +
+                                "&autoawaken=close&popup=close&isHideHeader=true&isHideNavBar=YES&navBarStyle=white",
+                          )
+                      );
+                      break;
+                    }
+                  }
+                  if (!showWebView) {
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                        content: const Text(
+                            "抱歉, 目前只支持搜索比基热搜出现的词条哟"
+                        ),
+                    ));
+                  }
                 },
                 onChanged: _onTextChange,
                 onSpeakButtonClicked: _jumpToSpeak,
