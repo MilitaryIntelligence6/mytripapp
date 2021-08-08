@@ -1,7 +1,7 @@
 
 
 
-import 'IList.dart';
+import "IList.dart";
 
 class JArrayList<E> extends IList<E> {
 

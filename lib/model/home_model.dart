@@ -1,7 +1,7 @@
-import 'package:flutter_ctrip/model/common_model.dart';
-import 'package:flutter_ctrip/model/config_model.dart';
-import 'package:flutter_ctrip/model/grid_nav_model.dart';
-import 'package:flutter_ctrip/model/sales_box_model.dart';
+import "package:flutter_ctrip/model/common_model.dart";
+import "package:flutter_ctrip/model/config_model.dart";
+import "package:flutter_ctrip/model/grid_nav_model.dart";
+import "package:flutter_ctrip/model/sales_box_model.dart";
 
 class HomeModel {
   final ConfigModel config;
@@ -20,15 +20,15 @@ class HomeModel {
       this.salesBox});
 
   factory HomeModel.fromJson(Map<String, dynamic> json) {
-    var localNavListJson = json['localNavList'] as List;
+    var localNavListJson = json["localNavList"] as List;
     List<CommonModel> localNavList =
         localNavListJson.map((i) => CommonModel.fromJson(i)).toList();
 
-    var bannerListJson = json['bannerList'] as List;
+    var bannerListJson = json["bannerList"] as List;
     List<CommonModel> bannerList =
         bannerListJson.map((i) => CommonModel.fromJson(i)).toList();
 
-    var subNavListJson = json['subNavList'] as List;
+    var subNavListJson = json["subNavList"] as List;
     List<CommonModel> subNavList =
         subNavListJson.map((i) => CommonModel.fromJson(i)).toList();
 
@@ -36,16 +36,16 @@ class HomeModel {
       localNavList: localNavList,
       bannerList: bannerList,
       subNavList: subNavList,
-      config: ConfigModel.fromJson(json['config']),
-      gridNav: GridNavModel.fromJson(json['gridNav']),
-      salesBox: SalesBoxModel.fromJson(json['salesBox']),
+      config: ConfigModel.fromJson(json["config"]),
+      gridNav: GridNavModel.fromJson(json["gridNav"]),
+      salesBox: SalesBoxModel.fromJson(json["salesBox"]),
     );
   }
 
   Map<String, dynamic> toJson(){
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if(this.config != null){
-      data['config'] = this.config.toJson();
+      data["config"] = this.config.toJson();
     }
   }
 }

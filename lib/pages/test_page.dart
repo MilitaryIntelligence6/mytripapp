@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_ctrip/plugin/side_page_view.dart';
-import 'package:flutter_ctrip/plugin/vertical_tab_view.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
-import 'dart:math' as math;
+import "package:flutter/material.dart";
+import "package:flutter/scheduler.dart";
+import "package:flutter_ctrip/plugin/side_page_view.dart";
+import "package:flutter_ctrip/plugin/vertical_tab_view.dart";
+import "package:flutter_swiper/flutter_swiper.dart";
+import "dart:math" as math;
 
 class TestPage extends StatefulWidget {
   final String title;
@@ -57,7 +57,7 @@ class _TestPageState extends State<TestPage> {
                 return Container(
                   margin: const EdgeInsets.symmetric(horizontal: 1.0),
                   color: Colors.tealAccent,
-                  child: Text('$index'),
+                  child: Text("$index"),
                 );
               },
             ),
@@ -90,8 +90,8 @@ class _TestPageState extends State<TestPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _scrollToIndex,
-        tooltip: 'Increment',
-        child: Text('ah'),
+        tooltip: "Increment",
+        child: Text("ah"),
       ),
     );
   }
@@ -145,8 +145,8 @@ class _TestPageState extends State<TestPage> {
         ),
       ],
       titleChildren: [
-        Text('Green'),
-        Text('Red'),
+        Text("Green"),
+        Text("Red"),
       ],
     );
   }
@@ -160,7 +160,7 @@ class _TestPageState extends State<TestPage> {
   @override
   void initState() {
     _controller.addListener((){
-      print(_controller.position.maxScrollExtent.toString() + 'max');
+      print(_controller.position.maxScrollExtent.toString() + "max");
       print(((_controller.position.pixels / _controller.position.maxScrollExtent) *100).toInt());
       setState(() {
         viewH = ((_controller.position.pixels / _controller.position.maxScrollExtent) *100).toDouble();

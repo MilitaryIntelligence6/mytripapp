@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:flutter_page_indicator/flutter_page_indicator.dart';
+import "package:flutter/material.dart";
+import "package:flutter_swiper/flutter_swiper.dart";
+import "package:flutter_page_indicator/flutter_page_indicator.dart";
 
 class SquareSwiperPagination extends SwiperPlugin {
   ///color when current index,if set null , will be Theme.of(context).primaryColor

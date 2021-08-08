@@ -1,6 +1,6 @@
 
 
-import 'package:flutter_ctrip/model/common_model.dart';
+import "package:flutter_ctrip/model/common_model.dart";
 
 //首页网格卡片模型
 class GridNavModel {
@@ -13,9 +13,9 @@ class GridNavModel {
   factory GridNavModel.fromJson(Map<String, dynamic> json) {
     return json != null
         ? GridNavModel(
-      hotel: GridNavItem.fromJson(json['hotel']),
-      flight: GridNavItem.fromJson(json['flight']),
-      travel: GridNavItem.fromJson(json['travel']),
+      hotel: GridNavItem.fromJson(json["hotel"]),
+      flight: GridNavItem.fromJson(json["flight"]),
+      travel: GridNavItem.fromJson(json["travel"]),
     )
         : null;
   }
@@ -41,13 +41,13 @@ class GridNavItem {
 
   factory GridNavItem.fromJson(Map<String, dynamic> json) {
     return GridNavItem(
-      startColor: json['startColor'],
-      endColor: json['endColor'],
-      mainItem: CommonModel.fromJson(json['mainItem']),
-      item1: CommonModel.fromJson(json['item1']),
-      item2: CommonModel.fromJson(json['item2']),
-      item3: CommonModel.fromJson(json['item3']),
-      item4: CommonModel.fromJson(json['item4']),
+      startColor: json["startColor"],
+      endColor: json["endColor"],
+      mainItem: CommonModel.fromJson(json["mainItem"]),
+      item1: CommonModel.fromJson(json["item1"]),
+      item2: CommonModel.fromJson(json["item2"]),
+      item3: CommonModel.fromJson(json["item3"]),
+      item4: CommonModel.fromJson(json["item4"]),
     );
   }
 }

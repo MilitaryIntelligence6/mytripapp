@@ -6,12 +6,12 @@ class TravelSearchModel {
   TravelSearchModel({this.responseStatus, this.result});
 
   TravelSearchModel.fromJson(Map<String, dynamic> json) {
-    responseStatus = json['ResponseStatus'] != null
-        ? new ResponseStatus.fromJson(json['ResponseStatus'])
+    responseStatus = json["ResponseStatus"] != null
+        ? new ResponseStatus.fromJson(json["ResponseStatus"])
         : null;
-    if (json['result'] != null) {
+    if (json["result"] != null) {
       result = new List<Result>();
-      json['result'].forEach((v) {
+      json["result"].forEach((v) {
         result.add(new Result.fromJson(v));
       });
     }
@@ -20,10 +20,10 @@ class TravelSearchModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.responseStatus != null) {
-      data['ResponseStatus'] = this.responseStatus.toJson();
+      data["ResponseStatus"] = this.responseStatus.toJson();
     }
     if (this.result != null) {
-      data['result'] = this.result.map((v) => v.toJson()).toList();
+      data["result"] = this.result.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -37,11 +37,11 @@ class ResponseStatus {
   ResponseStatus({this.timestamp, this.ack, this.extension});
 
   ResponseStatus.fromJson(Map<String, dynamic> json) {
-    timestamp = json['Timestamp'];
-    ack = json['Ack'];
-    if (json['Extension'] != null) {
+    timestamp = json["Timestamp"];
+    ack = json["Ack"];
+    if (json["Extension"] != null) {
       extension = new List<Extension>();
-      json['Extension'].forEach((v) {
+      json["Extension"].forEach((v) {
         extension.add(new Extension.fromJson(v));
       });
     }
@@ -49,10 +49,10 @@ class ResponseStatus {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Timestamp'] = this.timestamp;
-    data['Ack'] = this.ack;
+    data["Timestamp"] = this.timestamp;
+    data["Ack"] = this.ack;
     if (this.extension != null) {
-      data['Extension'] = this.extension.map((v) => v.toJson()).toList();
+      data["Extension"] = this.extension.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -65,14 +65,14 @@ class Extension {
   Extension({this.id, this.value});
 
   Extension.fromJson(Map<String, dynamic> json) {
-    id = json['Id'];
-    value = json['Value'];
+    id = json["Id"];
+    value = json["Value"];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Id'] = this.id;
-    data['Value'] = this.value;
+    data["Id"] = this.id;
+    data["Value"] = this.value;
     return data;
   }
 }
@@ -84,10 +84,10 @@ class Result {
   Result({this.moduleType, this.items});
 
   Result.fromJson(Map<String, dynamic> json) {
-    moduleType = json['moduleType'];
-    if (json['items'] != null) {
+    moduleType = json["moduleType"];
+    if (json["items"] != null) {
       items = new List<Items>();
-      json['items'].forEach((element) {
+      json["items"].forEach((element) {
         items.add(new Items.fromJson(element));
       });
     }
@@ -95,9 +95,9 @@ class Result {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['moduleType'] = this.moduleType;
+    data["moduleType"] = this.moduleType;
     if (this.items != null) {
-      data['items'] = this.items.map((v) => v.toJson()).toList();
+      data["items"] = this.items.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -132,34 +132,34 @@ class Items {
         this.articleCount});
 
   Items.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    resourceType = json['resourceType'];
-    name = json['name'];
-    title = json['title'];
-    appUrl = json['appUrl'];
-    h5Url = json['h5Url'];
-    wxUrl = json['wxUrl'];
-    mainWxUrl = json['mainWxUrl'];
-    imageUrl = json['imageUrl'];
-    clientAuth = json['clientAuth'];
-    followCount = json['followCount'];
-    articleCount = json['articleCount'];
+    id = json["id"];
+    resourceType = json["resourceType"];
+    name = json["name"];
+    title = json["title"];
+    appUrl = json["appUrl"];
+    h5Url = json["h5Url"];
+    wxUrl = json["wxUrl"];
+    mainWxUrl = json["mainWxUrl"];
+    imageUrl = json["imageUrl"];
+    clientAuth = json["clientAuth"];
+    followCount = json["followCount"];
+    articleCount = json["articleCount"];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['resourceType'] = this.resourceType;
-    data['name'] = this.name;
-    data['title'] = this.title;
-    data['appUrl'] = this.appUrl;
-    data['h5Url'] = this.h5Url;
-    data['wxUrl'] = this.wxUrl;
-    data['mainWxUrl'] = this.mainWxUrl;
-    data['followCount'] = this.followCount;
-    data['clientAuth'] = this.clientAuth;
-    data['imageUrl'] = this.imageUrl;
-    data['articleCount'] = this.articleCount;
+    data["id"] = this.id;
+    data["resourceType"] = this.resourceType;
+    data["name"] = this.name;
+    data["title"] = this.title;
+    data["appUrl"] = this.appUrl;
+    data["h5Url"] = this.h5Url;
+    data["wxUrl"] = this.wxUrl;
+    data["mainWxUrl"] = this.mainWxUrl;
+    data["followCount"] = this.followCount;
+    data["clientAuth"] = this.clientAuth;
+    data["imageUrl"] = this.imageUrl;
+    data["articleCount"] = this.articleCount;
     return data;
   }
 }

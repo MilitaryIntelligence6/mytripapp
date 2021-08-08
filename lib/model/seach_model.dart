@@ -5,7 +5,7 @@ class SearchModel {
   SearchModel({this.data});
 
   factory SearchModel.fromJson(Map<String, dynamic> json) {
-    var dataJson = json['data'] as List;
+    var dataJson = json["data"] as List;
     List<SearchItem> data =
         dataJson.map((i) => SearchItem.fromJson(i)).toList();
     return SearchModel(data: data);
@@ -32,13 +32,13 @@ class SearchItem {
 
   factory SearchItem.fromJson(Map<String, dynamic> json) {
     return SearchItem(
-      word: json['word'],
-      type: json['type'],
-      price: json['price'],
-      star: json['star'],
-      zonename: json['zonename'],
-      districtname: json['districtname'],
-      url: json['url'],
+      word: json["word"],
+      type: json["type"],
+      price: json["price"],
+      star: json["star"],
+      zonename: json["zonename"],
+      districtname: json["districtname"],
+      url: json["url"],
     );
   }
 }

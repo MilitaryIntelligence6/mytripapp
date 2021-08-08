@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 /// A scrollable list that works page by page with a custom title and controls.
 ///
@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// members. Similar to [PageView] you can use a [PageController] to control
 /// which page is visible in the view.
 class SidePageView extends StatefulWidget {
-  /// Takes two [List]'s and constructs the title and the body from them.
+  /// Takes two [List]"s and constructs the title and the body from them.
   ///
   /// The lists are both directly wrapped in [IndexedWidgetBuilder]. Since every
   /// Widget in the list must be explicitly created, consider using this
@@ -28,7 +28,7 @@ class SidePageView extends StatefulWidget {
     this.children,
   }) : controller = controller ?? PageController();
 
-  /// Takes two [IndexedWidgetBuilder]'s and constructs the title and the body from them.
+  /// Takes two [IndexedWidgetBuilder]"s and constructs the title and the body from them.
   ///
   /// Creates a semi-infinitely scrollable [PageView], where the title is build from
   /// [titleBuilder] and the body from [bodyBuilder]. Contrary to [PageView.builder],

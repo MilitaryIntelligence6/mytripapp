@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
+import "package:flutter/widgets.dart";
 
 class NavigatorUtil {
 
@@ -9,7 +9,7 @@ class NavigatorUtil {
   static push(BuildContext context, Widget page, { Function callBack }) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => page)).then((res) {
       ///获取返回处理
-      callBack != null ? callBack() : print('not fount callBack');
+      callBack != null ? callBack() : print("not fount callBack");
     });
   }
 }

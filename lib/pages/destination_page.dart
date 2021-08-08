@@ -3,7 +3,7 @@ import "package:flutter/services.dart";
 import "package:flutter_ctrip/dao/destination_dao.dart";
 import "package:flutter_ctrip/model/destination_model.dart";
 import "package:flutter_ctrip/pages/destination_search_page.dart";
-import 'package:flutter_ctrip/pages/page_type.dart';
+import "package:flutter_ctrip/pages/page_type.dart";
 import "package:flutter_ctrip/pages/speak_page.dart";
 import "package:flutter_ctrip/plugin/vertical_tab_view.dart";
 import "package:flutter_ctrip/util/navigator_util.dart";

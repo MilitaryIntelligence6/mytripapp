@@ -1,5 +1,5 @@
 
-import 'IMap.dart';
+import "IMap.dart";
 
 class JHashMap<K, V> implements IMap<K, V> {
 

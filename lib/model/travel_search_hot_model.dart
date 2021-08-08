@@ -5,9 +5,9 @@ class TravelSearchHotModel {
 
   TravelSearchHotModel.fromJson(Map<String, dynamic> json) {
 
-    if (json['result'] != null) {
+    if (json["result"] != null) {
       hotResult = new List<HotResult>();
-      json['result'].forEach((v) {
+      json["result"].forEach((v) {
         hotResult.add(new HotResult.fromJson(v));
       });
     }
@@ -16,7 +16,7 @@ class TravelSearchHotModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.hotResult != null) {
-      data['result'] = this.hotResult.map((v) => v.toJson()).toList();
+      data["result"] = this.hotResult.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -31,12 +31,12 @@ class HotResult {
   HotResult({this.name, this.title, this.template, this.resourceItems});
 
   HotResult.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    title = json['title'];
-    template = json['template'];
-    if (json['resourceItems'] != null) {
+    name = json["name"];
+    title = json["title"];
+    template = json["template"];
+    if (json["resourceItems"] != null) {
       resourceItems = new List<ResourceItems>();
-      json['resourceItems'].forEach((v) {
+      json["resourceItems"].forEach((v) {
         resourceItems.add(new ResourceItems.fromJson(v));
       });
     }
@@ -44,11 +44,11 @@ class HotResult {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['title'] = this.title;
-    data['template'] = this.template;
+    data["name"] = this.name;
+    data["title"] = this.title;
+    data["template"] = this.template;
     if (this.resourceItems != null) {
-      data['resourceItems'] =
+      data["resourceItems"] =
           this.resourceItems.map((v) => v.toJson()).toList();
     }
     return data;
@@ -76,26 +76,26 @@ class ResourceItems {
         this.mainWxUrl});
 
   ResourceItems.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    title = json['title'];
-    iconUrl = json['iconUrl'];
-    resourceType = json['resourceType'];
-    h5Url = json['h5Url'];
-    appUrl = json['appUrl'];
-    wxUrl = json['wxUrl'];
-    mainWxUrl = json['mainWxUrl'];
+    id = json["id"];
+    title = json["title"];
+    iconUrl = json["iconUrl"];
+    resourceType = json["resourceType"];
+    h5Url = json["h5Url"];
+    appUrl = json["appUrl"];
+    wxUrl = json["wxUrl"];
+    mainWxUrl = json["mainWxUrl"];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['iconUrl'] = this.iconUrl;
-    data['resourceType'] = this.resourceType;
-    data['h5Url'] = this.h5Url;
-    data['appUrl'] = this.appUrl;
-    data['wxUrl'] = this.wxUrl;
-    data['mainWxUrl'] = this.mainWxUrl;
+    data["id"] = this.id;
+    data["title"] = this.title;
+    data["iconUrl"] = this.iconUrl;
+    data["resourceType"] = this.resourceType;
+    data["h5Url"] = this.h5Url;
+    data["appUrl"] = this.appUrl;
+    data["wxUrl"] = this.wxUrl;
+    data["mainWxUrl"] = this.mainWxUrl;
     return data;
   }
 }
