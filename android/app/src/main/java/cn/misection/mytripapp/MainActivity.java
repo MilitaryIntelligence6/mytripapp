@@ -2,7 +2,7 @@ package cn.misection.mytripapp;
 
 import android.os.Bundle;
 
-import cn.misection.asrplugin.asr.AsrPlugin;
+import cn.misection.plugin.asr.AsrPlugin;
 
 import io.flutter.app.FlutterActivity;
 import io.flutter.plugins.GeneratedPluginRegistrant;
@@ -16,6 +16,6 @@ public class MainActivity extends FlutterActivity {
     }
 
     private void registerPlugins() {
-        AsrPlugin.registerWith(registrarFor("com.example.plugin.asr.AsrPlugin"));
+        AsrPlugin.registerWith(registrarFor("cn.misection.plugin.asr.AsrPlugin"));
     }
 }

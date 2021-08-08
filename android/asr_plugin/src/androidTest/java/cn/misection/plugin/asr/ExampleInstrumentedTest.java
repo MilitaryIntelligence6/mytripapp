@@ -1,4 +1,4 @@
-package cn.misection.asrplugin.asr;
+package cn.misection.plugin.asr;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.plugin.asr.test", appContext.getPackageName());
+        assertEquals("cn.misection.plugin.asr.test", appContext.getPackageName());
     }
 }

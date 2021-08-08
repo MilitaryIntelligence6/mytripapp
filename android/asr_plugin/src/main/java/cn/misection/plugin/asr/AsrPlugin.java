@@ -1,4 +1,4 @@
-package cn.misection.asrplugin.asr;
+package cn.misection.plugin.asr;
 
 import android.Manifest;
 import android.app.Activity;
