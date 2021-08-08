@@ -4,3 +4,4 @@
 + tap 改为 inkwell;
 + 所有 image 改为 Iamge.asset/network;
 + 加入 lint;
++ 把各个分成模块;

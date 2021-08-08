@@ -2,9 +2,7 @@
 import "package:flutter/material.dart";
 import "package:flutter/services.dart";
 import "package:flutter_color_plugin/flutter_color_plugin.dart";
-
-/// TODO 分模块, 而不是按架构;
-import "navigator/tab_navigater.dart";
+import 'package:flutter_ctrip/ui/navigator/tab_navigater.dart';
 
 void main() => runApp(new MyApp());
 
