@@ -1,29 +1,29 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_ctrip/dao/destination_dao.dart';
-import 'package:flutter_ctrip/model/destination_model.dart';
-import 'package:flutter_ctrip/pages/destination_search_page.dart';
-import 'package:flutter_ctrip/pages/speak_page.dart';
-import 'package:flutter_ctrip/plugin/vertical_tab_view.dart';
-import 'package:flutter_ctrip/util/navigator_util.dart';
-import 'package:flutter_ctrip/widget/scalable_box.dart';
-import 'package:flutter_ctrip/widget/search_bar.dart';
-import 'package:flutter_ctrip/widget/loading_container.dart';
-import 'package:flutter_ctrip/widget/webview.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
+import "package:flutter_ctrip/dao/destination_dao.dart";
+import "package:flutter_ctrip/model/destination_model.dart";
+import "package:flutter_ctrip/pages/destination_search_page.dart";
+import "package:flutter_ctrip/pages/speak_page.dart";
+import "package:flutter_ctrip/plugin/vertical_tab_view.dart";
+import "package:flutter_ctrip/util/navigator_util.dart";
+import "package:flutter_ctrip/widget/scalable_box.dart";
+import "package:flutter_ctrip/widget/search_bar.dart";
+import "package:flutter_ctrip/widget/loading_container.dart";
+import "package:flutter_ctrip/widget/webview.dart";
 
-const DEFAULT_TEXT = '目的地 | 主题 | 关键字';
+const DEFAULT_TEXT = "目的地 | 主题 | 关键字";
 
 class DestinationPage extends StatefulWidget {
   @override
-  _DestinationPageState createState() => _DestinationPageState();
+  _DestinationPageState createState() => new _DestinationPageState();
 }
 
 class _DestinationPageState extends State<DestinationPage>
     with AutomaticKeepAliveClientMixin {
   DestinationModel destinationModel;
   List<NavigationPopList> navigationList;
-  List<Tab> tabs = [];
-  List<Widget> tabPages = [];
+  List<Tab> tabs = new List<Tab>();
+  List<Widget> tabPages = new List<Widget>();
   bool _isLoading = true;
   bool _isMore = true;
   int pageIndex, buttonIndex;
@@ -36,9 +36,9 @@ class _DestinationPageState extends State<DestinationPage>
         _isLoading = false;
       });
     }
-    if (Theme
-        .of(context)
-        .platform == TargetPlatform.iOS) {}
+    if (Theme.of(context).platform == TargetPlatform.iOS) {
+      
+    }
     return new Scaffold(
       backgroundColor: Colors.white,
       body: new LoadingContainer(
@@ -47,9 +47,7 @@ class _DestinationPageState extends State<DestinationPage>
           children: <Widget>[
             new Container(
               margin: new EdgeInsets.only(
-                  top: Theme
-                      .of(context)
-                      .platform == TargetPlatform.iOS
+                  top: Theme.of(context).platform == TargetPlatform.iOS
                       ? 92
                       : 86),
               // 热门目的地等等啥的所有框框包括url跳转
@@ -156,13 +154,12 @@ class _DestinationPageState extends State<DestinationPage>
       for (var j = 0; j < navigationList[i].destAreaList.length; j++) {
         String text = navigationList[i].destAreaList[j].text;
         tabPage.add(
-
           /// 标题
-          Container(
-            padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
-            child: Text(
+          new Container(
+            padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+            child: new Text(
               text,
-              style: TextStyle(fontSize: 14, color: Colors.black87),
+              style: const TextStyle(fontSize: 14, color: Colors.black87),
             ),
           ),
         );
@@ -183,7 +180,7 @@ class _DestinationPageState extends State<DestinationPage>
               .child[k]
               .tagList[0]
               .tagName
-              : '';
+              : "";
           String spanText = navigationList[i].destAreaList[j].child[k].text;
           int tagListL =
               navigationList[i].destAreaList[j].child[k].tagList.length;
@@ -192,7 +189,7 @@ class _DestinationPageState extends State<DestinationPage>
           int id = navigationList[i].destAreaList[j].child[k].id;
 
           ///图片
-          if (picUrl != null && picUrl != '') {
+          if (picUrl != null && picUrl != "") {
             imageItems.add(
               createImage(picUrl, tagListL, tagName, imgName, kwd, id),
             );
@@ -211,26 +208,26 @@ class _DestinationPageState extends State<DestinationPage>
           }
         }
         if (visibleSpans.length >= 9) {
-          visibleRows.add(Row(
+          visibleRows.add(new Row(
             children: visibleSpans.sublist(0, 3),
           ));
-          visibleRows.add(Row(
+          visibleRows.add(new Row(
             children: visibleSpans.sublist(3, 6),
           ));
-          visibleRows.add(Row(
+          visibleRows.add(new Row(
             children: visibleSpans.sublist(6, 9),
           ));
         } else if (visibleSpans.length > 0 && visibleSpans.length < 9) {
           if (visibleSpans.length % 3 == 1) {
-            visibleSpans.add(Expanded(child: Container()));
-            visibleSpans.add(Expanded(child: Container()));
+            visibleSpans.add(new Expanded(child: Container()));
+            visibleSpans.add(new Expanded(child: Container()));
           } else if (visibleSpans.length % 3 == 2) {
-            visibleSpans.add(Expanded(child: Container()));
+            visibleSpans.add(new Expanded(child: Container()));
           }
           int vStart = 0;
           for (var k = 0; k < visibleSpans.length; k++) {
             if ((k + 1) % 3 == 0 && k != 0) {
-              visibleRows.add(Row(
+              visibleRows.add(new Row(
                 children: visibleSpans.sublist(vStart, (k + 1)),
               ));
               vStart = k + 1;
@@ -240,14 +237,14 @@ class _DestinationPageState extends State<DestinationPage>
         int unStart = 0;
         if (unVisibleSpans.length >= 9) {
           if (unVisibleSpans.length % 3 == 1) {
-            unVisibleSpans.add(Expanded(child: Container()));
-            unVisibleSpans.add(Expanded(child: Container()));
+            unVisibleSpans.add(new Expanded(child: Container()));
+            unVisibleSpans.add(new Expanded(child: Container()));
           } else if (unVisibleSpans.length % 3 == 2) {
-            unVisibleSpans.add(Expanded(child: Container()));
+            unVisibleSpans.add(new Expanded(child: Container()));
           }
           for (var k = 0; k < unVisibleSpans.length; k++) {
             if ((k + 1) % 3 == 0 && k != 0) {
-              unVisibleRows.add(Row(
+              unVisibleRows.add(new Row(
                 children: unVisibleSpans.sublist(unStart, (k + 1)),
               ));
               unStart = k + 1;
@@ -257,10 +254,10 @@ class _DestinationPageState extends State<DestinationPage>
         // 处理数据 每3条数据放到一个row容器
         List<Widget> rowList = new List<Widget>();
         if (imageItems.length % 3 == 1) {
-          imageItems.add(Expanded(child: Container()));
-          imageItems.add(Expanded(child: Container()));
+          imageItems.add(new Expanded(child: Container()));
+          imageItems.add(new Expanded(child: Container()));
         } else if (imageItems.length % 3 == 2) {
-          imageItems.add(Expanded(child: Container()));
+          imageItems.add(new Expanded(child: Container()));
         }
         int start = 0;
         for (var k = 0; k < imageItems.length; k++) {
@@ -273,7 +270,7 @@ class _DestinationPageState extends State<DestinationPage>
             start = k + 1;
           } else if (imageItems.length - start < 3) {
             rowList.add(
-              Row(
+              new Row(
                 children: imageItems.sublist(start),
               ),
             );
@@ -281,26 +278,26 @@ class _DestinationPageState extends State<DestinationPage>
           }
         }
         tabPage.add(
-          Column(
+          new Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: rowList,
           ),
         );
         if (visibleRows.length > 0) {
           tabPage.add(
-            ScalableBox(visibleRows, unVisibleRows),
+            new ScalableBox(visibleRows, unVisibleRows),
           );
         }
       }
-      tabPages.add(MediaQuery.removePadding(
+      tabPages.add(new MediaQuery.removePadding(
         removeTop: true,
         context: context,
-        child: ListView(
+        child: new ListView(
           children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.fromLTRB(2, 0, 10, 0),
-              child: Column(
+            new Container(
+              margin: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.fromLTRB(2, 0, 10, 0),
+              child: new Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: tabPage,
@@ -315,7 +312,7 @@ class _DestinationPageState extends State<DestinationPage>
   void _jumpToSearch() {
     NavigatorUtil.push(
       context,
-      DestinationSearchPage(
+      new DestinationSearchPage(
         hint: DEFAULT_TEXT,
         hideLeft: false,
       ),
@@ -325,19 +322,19 @@ class _DestinationPageState extends State<DestinationPage>
   void _jumpToSpeak() {
     NavigatorUtil.push(
         context,
-        SpeakPage(
-          pageType: 'destination',
+        new SpeakPage(
+          pageType: "destination",
         ));
   }
 
   void _jumpToService() {
     NavigatorUtil.push(
         context,
-        WebView(
+        new WebView(
           url:
-          'https://m.ctrip.com/webapp/servicechatv2/?bizType=1105&channel=VAC&orderInfo=&isPreSale=1&pageCode=220008&thirdPartytoken=F2BCB02915C58496DD7DEA00278B68AF&sceneCode=0&isFreeLogin=',
+          "https://m.ctrip.com/webapp/servicechatv2/?bizType=1105&channel=VAC&orderInfo=&isPreSale=1&pageCode=220008&thirdPartytoken=F2BCB02915C58496DD7DEA00278B68AF&sceneCode=0&isFreeLogin=",
           hideAppBar: false,
-          title: '客服',
+          title: "客服",
         ));
   }
 
@@ -349,58 +346,58 @@ class _DestinationPageState extends State<DestinationPage>
 
   Widget createSpan(String text, int tagListL, String tagText, String kwd,
       int id) {
-    return Expanded(
-      child: GestureDetector(
+    return new Expanded(
+      child: new GestureDetector(
         onTap: () {
           _openWebView(kwd, id);
         },
         child: Stack(
           children: <Widget>[
-            Container(
+            new Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.fromLTRB(0, 0, 10, 10),
-              decoration: BoxDecoration(
-                  color: Color(0xfff8f8f8),
-                  borderRadius: BorderRadius.circular(4),
+              margin: const EdgeInsets.fromLTRB(0, 0, 10, 10),
+              decoration: new BoxDecoration(
+                  color: const Color(0xfff8f8f8),
+                  borderRadius: new BorderRadius.circular(4),
                   boxShadow: [
-                    BoxShadow(
+                    new BoxShadow(
                         color: Colors.black.withAlpha(30),
-                        offset: Offset(1, 1),
+                        offset: const Offset(1, 1),
                         spreadRadius: 1,
                         blurRadius: 3),
                   ]),
               height: 36,
-              child: Text(
+              child: new Text(
                 text,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: new TextStyle(
                     color: Color(0xff333333).withAlpha(220), fontSize: 13),
               ),
             ),
             tagListL > 0
-                ? Positioned(
+                ? new Positioned(
               top: -8,
               right: 4,
-              child: Container(
-                padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
+              child: new Container(
+                padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                 height: 18,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Color(0xffff7600),
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(6),
-                    topLeft: Radius.circular(8),
-                    bottomLeft: Radius.circular(0),
-                    bottomRight: Radius.circular(6),
+                decoration: const BoxDecoration(
+                  color: const Color(0xffff7600),
+                  borderRadius: const BorderRadius.only(
+                    topRight: const Radius.circular(6),
+                    topLeft: const Radius.circular(8),
+                    bottomLeft: const Radius.circular(0),
+                    bottomRight: const Radius.circular(6),
                   ),
                 ),
-                child: Text(
+                child: new Text(
                   tagText,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 12,
                   ),
@@ -417,63 +414,63 @@ class _DestinationPageState extends State<DestinationPage>
 
   Widget createImage(String picUrl, int tagListL, String tagName,
       String imgName, String kwd, int id) {
-    return Expanded(
-      child: GestureDetector(
+    return new Expanded(
+      child: new GestureDetector(
         onTap: () {
           _openWebView(kwd, id);
         },
-        child: Container(
-          padding: EdgeInsets.fromLTRB(10, 8, 0, 0),
-          child: Column(
+        child: new Container(
+          padding: const EdgeInsets.fromLTRB(10, 8, 0, 0),
+          child: new Column(
             children: <Widget>[
-              PhysicalModel(
-                borderRadius: BorderRadius.circular(6),
+              new PhysicalModel(
+                borderRadius: new BorderRadius.circular(6),
                 clipBehavior: Clip.antiAlias,
                 color: Colors.transparent,
                 elevation: 5,
-                child: Stack(
+                child: new Stack(
                   children: <Widget>[
-                    Container(
-                      child: Image.network(
+                    new Container(
+                      child: new Image.network(
                         picUrl,
                         fit: BoxFit.cover,
                       ),
                     ),
                     tagListL > 0
-                        ? Positioned(
+                        ? new Positioned(
                       top: 0,
                       left: 0,
-                      child: Container(
-                        padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
+                      child: new Container(
+                        padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                         height: 18,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: Color(0xffff7600),
-                            borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(8))),
-                        child: Text(
+                        decoration: const BoxDecoration(
+                            color: const Color(0xffff7600),
+                            borderRadius: const BorderRadius.only(
+                                bottomRight: const Radius.circular(8))),
+                        child: new Text(
                           tagName,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 12,
                           ),
                         ),
                       ),
                     )
-                        : Container(),
+                        : const SizedBox.shrink(),
                   ],
                 ),
               ),
-              Container(
+              new Container(
                 alignment: Alignment.center,
-                padding: EdgeInsets.fromLTRB(0, 4, 0, 4),
-                child: Text(
+                padding: const EdgeInsets.fromLTRB(0, 4, 0, 4),
+                child: new Text(
                   imgName,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: TextStyle(color: Color(0xff333333).withAlpha(220)),
+                  style: const TextStyle(color: Color(0xff333333).withAlpha(220)),
                 ),
               ),
             ],
@@ -487,13 +484,13 @@ class _DestinationPageState extends State<DestinationPage>
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 
-  void _openWebView(String kwd, int id) {
+  void _openWebView(String keyword, int id) {
     NavigatorUtil.push(
         context,
-        WebView(
+        new WebView(
           url:
-          'https://m.ctrip.com/webapp/vacations/tour/list?identifier=choice&kwd=${kwd}&poid=${id
-              .toString()}&poitype=D&salecity=2&scity=2&searchtype=all&tab=126',
+          "https://m.ctrip.com/webapp/vacations/tour/list?identifier=choice&kwd=${keyword}&poid=${id
+              .toString()}&poitype=D&salecity=2&scity=2&searchtype=all&tab=126",
           hideAppBar: true,
         ));
   }
