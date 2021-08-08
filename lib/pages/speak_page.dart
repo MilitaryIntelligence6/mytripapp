@@ -7,13 +7,13 @@
  * 课程辅导答疑区：
  * http://coding.imooc.com/learn/qa/321.html
  */
-import 'package:flutter/material.dart';
-import 'package:flutter_ctrip/pages/destination_search_page.dart';
-import 'package:flutter_ctrip/pages/page_type.dart';
-import 'package:flutter_ctrip/pages/search_page.dart';
-import 'package:flutter_ctrip/pages/travel_search_page.dart';
-import 'package:flutter_ctrip/plugin/asr_manager.dart';
-import 'package:flutter_ctrip/util/navigator_util.dart';
+import "package:flutter/material.dart";
+import "package:flutter_ctrip/pages/destination_search_page.dart";
+import "package:flutter_ctrip/pages/page_type.dart";
+import "package:flutter_ctrip/pages/search_page.dart";
+import "package:flutter_ctrip/pages/travel_search_page.dart";
+import "package:flutter_ctrip/plugin/asr_manager.dart";
+import "package:flutter_ctrip/util/navigator_util.dart";
 
 ///语音识别
 class SpeakPage extends StatefulWidget {
@@ -27,8 +27,21 @@ class SpeakPage extends StatefulWidget {
 
 class _SpeakPageState extends State<SpeakPage>
     with SingleTickerProviderStateMixin, TickerProviderStateMixin {
-  String speakTips = '长按说话';
-  String speakResult = '';
+
+  static const uniteTextStyle26 = const TextStyle(
+      fontSize: 14,
+      color: Colors.black26,
+      letterSpacing: 1.2
+  );
+
+  static const uniteTextStyle38 = const TextStyle(
+      fontSize: 14,
+      color: Colors.black38,
+      letterSpacing: 1.2
+  );
+
+  String speakTips = "长按说话";
+  String speakResult = "";
   bool isUnResult = true;
   bool isStart = false;
   Animation<double> animation;
@@ -83,7 +96,7 @@ class _SpeakPageState extends State<SpeakPage>
   void _speakStart() {
     controller.forward();
     setState(() {
-      speakTips = '松开完成';
+      speakTips = "松开完成";
       isStart = true;
       isVTop = false;
     });
@@ -91,16 +104,16 @@ class _SpeakPageState extends State<SpeakPage>
       if (text != null && text.length > 0) {
         setState(() {
           speakResult = text;
-          if (speakResult.endsWith('，')) {
+          if (speakResult.endsWith("，")) {
             speakResult = speakResult.substring(0, speakResult.length - 1);
           }
-          if (speakResult.endsWith('。')) {
+          if (speakResult.endsWith("。")) {
             speakResult = speakResult.substring(0, speakResult.length - 1);
           }
-          if (speakResult.endsWith('?')) {
+          if (speakResult.endsWith("?")) {
             speakResult = speakResult.substring(0, speakResult.length - 1);
           }
-          if (speakResult.endsWith('？')) {
+          if (speakResult.endsWith("？")) {
             speakResult = speakResult.substring(0, speakResult.length - 1);
           }
         });
@@ -146,7 +159,7 @@ class _SpeakPageState extends State<SpeakPage>
 
   void _speakStop() {
     setState(() {
-      speakTips = '长按说话';
+      speakTips = "长按说话";
       isStart = false;
     });
     controller.reset();
@@ -161,49 +174,52 @@ class _SpeakPageState extends State<SpeakPage>
           padding: EdgeInsets.only(top: 10),
         ),
         Image.network(
-          'https://images3.c-ctrip.com/marketing/2015/07/coupon_new_h5/dlp_awk.png',
+          "https://images3.c-ctrip.com/marketing/2015/07/coupon_new_h5/dlp_awk.png",
           height: 80,
           width: 80,
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10),
         ),
-        new Text('正在听您说...',
-            style: TextStyle(
+        const Text("正在听您说...",
+            style: const TextStyle(
                 fontSize: 16,
-                color: Colors.black.withAlpha(180),
-                letterSpacing: 1.2)),
+                color: Colors.black38,
+                letterSpacing: 1.2
+            ),
+        ),
       ],
     );
   }
 
   Widget _topTip() {
-    return Column(
+    return new Column(
       children: <Widget>[
         const Padding(
           padding: EdgeInsets.only(top: 10),
         ),
         new Image.network(
-          'https://pages.c-ctrip.com/you/livestream/lvpai_you_img2.png',
+          "https://pages.c-ctrip.com/you/livestream/lvpai_you_img2.png",
           height: 80,
           width: 80,
         ),
         const Padding(
           padding: EdgeInsets.only(top: 10),
         ),
-        new Text('你好像没有说话',
+        const Text("你好像没有说话",
             style: TextStyle(
                 fontSize: 16,
-                color: Colors.black.withAlpha(180),
+                color: Colors.black38,
                 letterSpacing: 1.2)),
         const Padding(
           padding: EdgeInsets.only(top: 8),
         ),
-        new Text('请按住话筒重新开始',
+        const Text("请按住话筒重新开始",
             style: TextStyle(
                 fontSize: 14,
-                color: Colors.black.withAlpha(100),
-                letterSpacing: 1.2)),
+                color: Colors.black26,
+                letterSpacing: 1.2)
+        ),
       ],
     );
   }
@@ -214,22 +230,22 @@ class _SpeakPageState extends State<SpeakPage>
         new Padding(
           padding: const EdgeInsets.fromLTRB(0, 30, 0, 26),
           child: new Text(
-            '你可以这样说',
+            "你可以这样说",
             style: new TextStyle(
               fontSize: 16,
-              color: Colors.black.withAlpha(180),
+              color: Colors.black38,
             ),
           ),
         ),
-        _textItem('东方明珠'),
-        _textItem('三亚自由行'),
-        _textItem('迪士尼乐园'),
-        _textItem('日本跟团游'),
-        Padding(
-          padding: EdgeInsets.all(20),
-          child: Text(
+        _textItem("东方明珠"),
+        _textItem("三亚自由行"),
+        _textItem("迪士尼乐园"),
+        _textItem("日本跟团游"),
+        new Padding(
+          padding: const EdgeInsets.all(20),
+          child: new Text(
             speakResult,
-            style: TextStyle(color: Colors.blue),
+            style: const TextStyle(color: Colors.blue),
           ),
         )
       ],
@@ -237,11 +253,11 @@ class _SpeakPageState extends State<SpeakPage>
   }
 
   Widget _textItem(String text) {
-    return Container(
-      padding: EdgeInsets.only(bottom: 6),
-      child: Text(text,
+    return new Container(
+      padding: const EdgeInsets.only(bottom: 6),
+      child: new Text(text,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 15,
             color: Colors.grey,
           )),
@@ -249,9 +265,9 @@ class _SpeakPageState extends State<SpeakPage>
   }
 
   Widget _bottomItem() {
-    return Stack(
+    return new Stack(
       children: <Widget>[
-        GestureDetector(
+        new GestureDetector(
           onTapDown: (e) {
             _speakStart();
           },
@@ -265,13 +281,13 @@ class _SpeakPageState extends State<SpeakPage>
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Column(
+              new Column(
                 children: <Widget>[
-                  Text(
+                  new Text(
                     speakTips,
-                    style: TextStyle(color: Colors.blue, fontSize: 12),
+                    style: const TextStyle(color: Colors.blue, fontSize: 12),
                   ),
-                  AnimatedWear(
+                  new AnimatedWear(
                     animation: animation,
                     isStart: isStart,
                   ),
@@ -280,14 +296,14 @@ class _SpeakPageState extends State<SpeakPage>
             ],
           ),
         ),
-        Positioned(
+        new Positioned(
           right: 0,
           bottom: 26,
-          child: GestureDetector(
+          child: new GestureDetector(
             onTap: () {
               Navigator.pop(context);
             },
-            child: Icon(
+            child: new Icon(
               Icons.close,
               size: 26,
               color: Colors.grey,
@@ -301,8 +317,8 @@ class _SpeakPageState extends State<SpeakPage>
 
 class AnimatedWear extends AnimatedWidget {
   final bool isStart;
-  static final _opacityTween = Tween<double>(begin: 0.5, end: 0);
-  static final _sizeTween = Tween<double>(begin: 90, end: 260);
+  static final _opacityTween = new Tween<double>(begin: 0.5, end: 0);
+  static final _sizeTween = new Tween<double>(begin: 90, end: 260);
 
   AnimatedWear({Key key, this.isStart, Animation<double> animation})
       : super(key: key, listenable: animation);
@@ -310,48 +326,48 @@ class AnimatedWear extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     final Animation<double> animation = listenable;
-    return Container(
+    return new Container(
       height: 90,
       width: 90,
-      child: Stack(
+      child: new Stack(
         overflow: Overflow.visible,
         alignment: Alignment.center,
         children: <Widget>[
           isStart
-              ? Container(
-                  decoration: BoxDecoration(
+              ? new Container(
+                  decoration: new BoxDecoration(
                     color: Colors.black.withAlpha(30),
-                    borderRadius: BorderRadius.circular(45),
+                    borderRadius: new BorderRadius.circular(45),
                   ),
                 )
-              : Container(),
-          Container(
+              : const SizedBox.shrink(),
+          new Container(
             height: 70,
             width: 70,
-            decoration: BoxDecoration(
+            decoration: new BoxDecoration(
               color: Colors.blue,
-              borderRadius: BorderRadius.circular(35),
+              borderRadius: new BorderRadius.circular(35),
             ),
-            child: Icon(
+            child: new Icon(
               Icons.mic,
               color: Colors.white,
               size: 30,
             ),
           ),
-          Positioned(
+          new Positioned(
             left: -((_sizeTween.evaluate(animation) - 90) / 2), //45
             top: -((_sizeTween.evaluate(animation) - 90) / 2), //45,
-            child: Opacity(
+            child: new Opacity(
               opacity: _opacityTween.evaluate(animation),
-              child: Container(
+              child: new Container(
                 width: isStart ? _sizeTween.evaluate(animation) : 0,
                 height: _sizeTween.evaluate(animation),
-                decoration: BoxDecoration(
+                decoration: new BoxDecoration(
                     color: Colors.transparent,
-                    borderRadius: BorderRadius.circular(
+                    borderRadius: new BorderRadius.circular(
                         _sizeTween.evaluate(animation) / 2),
-                    border: Border.all(
-                      color: Color(0xa8000000),
+                    border: new Border.all(
+                      color: const Color(0xa8000000),
                     )),
               ),
             ),
