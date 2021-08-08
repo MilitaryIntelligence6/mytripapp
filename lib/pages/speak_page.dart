@@ -98,7 +98,7 @@ class _SpeakPageState extends State<SpeakPage>
           case 'home':
             NavigatorUtil.push(
                 context,
-                SearchPage(
+                new SearchPage(
                   keyword: speakResult,
                   hideLeft: false,
                 ));

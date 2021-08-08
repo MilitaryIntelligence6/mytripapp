@@ -73,7 +73,7 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  _item(int position) {
+  Widget _item(int position) {
     if (searchModel == null || searchModel.data == null) return null;
     SearchItem item = searchModel.data[position];
     return GestureDetector(
@@ -102,9 +102,9 @@ class _SearchPageState extends State<SearchPage> {
                   width: 26,
                   image: AssetImage(_typeImage(item.type))),
             ),
-            Column(
+            new Column(
               children: <Widget>[
-                Container(
+                new Container(
                   width: 300,
                   child: _title(item),
                 ),
@@ -117,32 +117,32 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  _appBar() {
-    return Column(
+  Widget _appBar() {
+    return new Column(
       children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0x66000000), Colors.transparent],
+        new Container(
+          decoration: new BoxDecoration(
+            gradient: new LinearGradient(
+              colors: [new Color(0x66000000), Colors.transparent],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
           ),
-          child: Container(
+          child: new Container(
               padding: EdgeInsets.only(top: 30),
               height: 100,
-              decoration: BoxDecoration(
+              decoration: new BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
-                  BoxShadow(
+                  new BoxShadow(
                     color: Colors.black12,
-                    offset: Offset(2, 3),
+                    offset: new Offset(2, 3),
                     blurRadius: 6,
                     spreadRadius: 0.6,
                   ),
                 ],
               ),
-              child: SearchBar(
+              child: new SearchBar(
                 hideLeft: widget.hideLeft,
                 defaultText: widget.keyword,
                 hint: widget.hint,
@@ -156,11 +156,12 @@ class _SearchPageState extends State<SearchPage> {
       ],
     );
   }
-  _jumpToSpeak() {
-    NavigatorUtil.push(context, SpeakPage());
+
+  void _jumpToSpeak() {
+    NavigatorUtil.push(context, new SpeakPage());
   }
 
-  _onTextChange(String text) {
+  void _onTextChange(String text) {
     keyword = text;
     if (text.length == 0) {
       setState(() {
@@ -180,7 +181,7 @@ class _SearchPageState extends State<SearchPage> {
     });
   }
 
-  _typeImage(String type) {
+  String _typeImage(String type) {
     if (type == null) return 'images/type_travelgroup.png';
     String path = 'travelgroup';
     for (final val in TYPES) {
@@ -192,26 +193,26 @@ class _SearchPageState extends State<SearchPage> {
     return 'images/type_$path.png';
   }
 
-  _title(SearchItem item) {
+  Widget _title(SearchItem item) {
     if (item == null) {
       return null;
     }
-    List<TextSpan> spans = [];
+    List<TextSpan> spans = new List<TextSpan>();
     spans.addAll(_keywordTextSpans(item.word, searchModel.keyword));
     spans.add(TextSpan(
         text: ' ' + (item.districtname ?? '') + ' ' + (item.zonename ?? ''),
-        style: TextStyle(fontSize: 16, color: Colors.grey)));
-    return RichText(text: TextSpan(children: spans));
+        style: const TextStyle(fontSize: 16, color: Colors.grey)));
+    return new RichText(text: new TextSpan(children: spans));
   }
 
-  _subTitle(SearchItem item) {
-    return RichText(
-      text: TextSpan(children: <TextSpan>[
-        TextSpan(
+  Widget _subTitle(SearchItem item) {
+    return new RichText(
+      text: new TextSpan(children: <TextSpan>[
+        new TextSpan(
           text: item.price ?? '',
-          style: TextStyle(fontSize: 16, color: Colors.orange),
+          style: const TextStyle(fontSize: 16, color: Colors.orange),
         ),
-        TextSpan(
+        new TextSpan(
           text: ' ' + (item.star ?? ''),
           style: TextStyle(fontSize: 12, color: Colors.grey),
         )

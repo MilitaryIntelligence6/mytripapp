@@ -166,12 +166,12 @@ class _DestinationPageState extends State<DestinationPage>
             ),
           ),
         );
-        List<Widget> imageItems = [];
-        List<Widget> spanContent = [];
-        List<Widget> visibleSpans = [];
-        List<Row> visibleRows = [];
-        List<Widget> unVisibleSpans = [];
-        List<Row> unVisibleRows = [];
+        List<Widget> imageItems = new List<Widget>();
+        List<Widget> spanContent = new List<Widget>();
+        List<Widget> visibleSpans = new List<Widget>();
+        List<Row> visibleRows = new List<Row>();
+        List<Widget> unVisibleSpans = new List<Widget>();
+        List<Row> unVisibleRows = new List<Row>();
         for (var k = 0;
         k < navigationList[i].destAreaList[j].child.length;
         k++) {
