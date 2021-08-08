@@ -6,6 +6,7 @@ import 'package:flutter_ctrip/dao/travel_tab_dao.dart';
 import 'package:flutter_ctrip/model/travel_hot_keyword_model.dart';
 import 'package:flutter_ctrip/model/travel_params_model.dart';
 import 'package:flutter_ctrip/model/travel_tab_model.dart';
+import 'package:flutter_ctrip/pages/page_type.dart';
 import 'package:flutter_ctrip/pages/speak_page.dart';
 import 'package:flutter_ctrip/pages/travel_search_page.dart';
 import 'package:flutter_ctrip/pages/travel_tab_page.dart';
@@ -35,7 +36,7 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
       body: new Column(
         children: <Widget>[
           new Container(
-            padding: new EdgeInsets.fromLTRB(8, 8, 6, 0),
+            padding: const EdgeInsets.fromLTRB(8, 8, 6, 0),
             decoration: new BoxDecoration(
               color: Colors.white,
             ),
@@ -53,18 +54,18 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
           ),
           new Container(
             color: Colors.white,
-            padding: new EdgeInsets.only(left: 2),
+            padding: const EdgeInsets.only(left: 2),
             child: new TabBar(
               controller: _controller,
               isScrollable: true,
               labelColor: Colors.black,
-              labelPadding: new EdgeInsets.fromLTRB(8, 6, 8, 0),
-              indicatorColor: new Color(0xff2FCFBB),
-              indicatorPadding: EdgeInsets.all(6),
+              labelPadding: const EdgeInsets.fromLTRB(8, 6, 8, 0),
+              indicatorColor: const Color(0xff2FCFBB),
+              indicatorPadding: const EdgeInsets.all(6),
               indicatorSize: TabBarIndicatorSize.label,
               indicatorWeight: 2.2,
-              labelStyle: new TextStyle(fontSize: 18),
-              unselectedLabelStyle: new TextStyle(fontSize: 15),
+              labelStyle: const TextStyle(fontSize: 18),
+              unselectedLabelStyle: const TextStyle(fontSize: 15),
               tabs: tabs.map<Tab>((Groups tab) {
                 return new Tab(
                   text: tab.name,
@@ -106,18 +107,18 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  _jumpToSpeak() {
+  void _jumpToSpeak() {
     NavigatorUtil.push(
         context,
-        SpeakPage(
-          pageType: 'travel',
+        new SpeakPage(
+          pageType: PageType.travel,
         ));
   }
 
   void _jumpToSearch() {
     NavigatorUtil.push(
       context,
-      TravelSearchPage(
+      new TravelSearchPage(
         hint: defaultText,
         hideLeft: false,
       ),
@@ -127,7 +128,7 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
   void _jumpToUser() {
     NavigatorUtil.push(
       context,
-      WebView(
+      new WebView(
         url:
             'https://m.ctrip.com/webapp/you/tripshoot/user/home?seo=0&isHideHeader=true&isHideNavBar=YES&navBarStyle=white',
         hideHead: false,

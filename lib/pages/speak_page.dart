@@ -9,6 +9,7 @@
  */
 import 'package:flutter/material.dart';
 import 'package:flutter_ctrip/pages/destination_search_page.dart';
+import 'package:flutter_ctrip/pages/page_type.dart';
 import 'package:flutter_ctrip/pages/search_page.dart';
 import 'package:flutter_ctrip/pages/travel_search_page.dart';
 import 'package:flutter_ctrip/plugin/asr_manager.dart';
@@ -16,9 +17,9 @@ import 'package:flutter_ctrip/util/navigator_util.dart';
 
 ///语音识别
 class SpeakPage extends StatefulWidget {
-  final String pageType;
+  final PageType pageType;
 
-  SpeakPage({this.pageType = 'home'});
+  SpeakPage({this.pageType = PageType.home});
 
   @override
   _SpeakPageState createState() => _SpeakPageState();
@@ -90,12 +91,22 @@ class _SpeakPageState extends State<SpeakPage>
       if (text != null && text.length > 0) {
         setState(() {
           speakResult = text;
-          if (speakResult.endsWith('，'))
+          if (speakResult.endsWith('，')) {
             speakResult = speakResult.substring(0, speakResult.length - 1);
+          }
+          if (speakResult.endsWith('。')) {
+            speakResult = speakResult.substring(0, speakResult.length - 1);
+          }
+          if (speakResult.endsWith('?')) {
+            speakResult = speakResult.substring(0, speakResult.length - 1);
+          }
+          if (speakResult.endsWith('？')) {
+            speakResult = speakResult.substring(0, speakResult.length - 1);
+          }
         });
         Navigator.pop(context);
         switch (widget.pageType) {
-          case 'home':
+          case PageType.home:
             NavigatorUtil.push(
                 context,
                 new SearchPage(
@@ -103,7 +114,7 @@ class _SpeakPageState extends State<SpeakPage>
                   hideLeft: false,
                 ));
             break;
-          case 'travel':
+          case PageType.travel:
             NavigatorUtil.push(
                 context,
                 TravelSearchPage(
@@ -111,7 +122,7 @@ class _SpeakPageState extends State<SpeakPage>
                   hideLeft: false,
                 ));
             break;
-          case 'destination':
+          case PageType.destination:
             NavigatorUtil.push(
                 context,
                 DestinationSearchPage(
