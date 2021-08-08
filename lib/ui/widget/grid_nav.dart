@@ -11,7 +11,7 @@ class GridNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return PhysicalModel(
+    return new PhysicalModel(
       color: Colors.transparent,
       borderRadius: BorderRadius.circular(6),
       clipBehavior: Clip.antiAlias,
@@ -21,7 +21,7 @@ class GridNav extends StatelessWidget {
     );
   }
 
-  _gridNavItems(BuildContext context) {
+  List<Widget> _gridNavItems(BuildContext context) {
     List<Widget> items = new List<Widget>();
     if (gridNavModel == null) return items;
     if (gridNavModel.hotel != null) {
@@ -60,9 +60,8 @@ class GridNav extends StatelessWidget {
   }
 
   Widget _mainItem(BuildContext context, CommonModel model) {
-    return _wrapGesture(
-      context,
-      Stack(
+    return new InkWell(
+      child: Stack(
         alignment: AlignmentDirectional.topCenter,
         children: <Widget>[
           Image.network(
@@ -81,11 +80,13 @@ class GridNav extends StatelessWidget {
           ),
         ],
       ),
-      model,
+      onTap: () {
+        _jumpToUrl(context, model);
+      },
     );
   }
 
-  _doubleItem(
+  Widget _doubleItem(
       BuildContext context, CommonModel topItem, CommonModel bottomItem) {
     return Column(
       children: <Widget>[
@@ -110,37 +111,33 @@ class GridNav extends StatelessWidget {
             bottom: first ? borderSide : BorderSide.none,
           ),
         ),
-        child: _wrapGesture(
-          context,
-          Center(
+        child: new InkWell(
+          child: Center(
             child: Text(
               item.title,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14, color: Colors.white),
             ),
           ),
-          item,
+          onTap: () {
+            _jumpToUrl(context, item);
+          },
         ),
       ),
     );
   }
 
-  _wrapGesture(BuildContext context, Widget widget, CommonModel model) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          new MaterialPageRoute(
-            builder: (BuildContext context) => new MyWebView(
-              url: model.url,
-              title: model.title,
-              statusBarColor: model.statusBarColor,
-              hideAppBar: model.hideAppBar,
-            ),
-          ),
-        );
-      },
-      child: widget,
+  void _jumpToUrl(BuildContext context, CommonModel model) {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(
+        builder: (BuildContext context) => new MyWebView(
+          url: model.url,
+          title: model.title,
+          statusBarColor: model.statusBarColor,
+          hideAppBar: model.hideAppBar,
+        ),
+      ),
     );
   }
 }
