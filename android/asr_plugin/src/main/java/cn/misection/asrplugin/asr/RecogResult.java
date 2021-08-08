@@ -10,10 +10,14 @@ import org.json.JSONObject;
 public class RecogResult {
     private static final int ERROR_NONE = 0;
 
-    private String origalJson;
+    private String originalJson;
     private String[] resultsRecognition;
-    private String origalResult;
-    private String sn; // 日志id， 请求有问题请提问带上sn
+    private String originalResult;
+
+    /**
+     * 日志id， 请求有问题请提问带上sn;
+     */
+    private String logIdSn;
     private String desc;
     private String resultType;
     private int error = -1;
@@ -21,7 +25,7 @@ public class RecogResult {
 
     public static RecogResult parseJson(String jsonStr) {
         RecogResult result = new RecogResult();
-        result.setOrigalJson(jsonStr);
+        result.setOriginalJson(jsonStr);
         try {
             JSONObject json = new JSONObject(jsonStr);
             int error = json.optInt("error");
@@ -31,7 +35,7 @@ public class RecogResult {
             result.setResultType(json.optString("result_type"));
             result.setSubError(subError);
             if (error == ERROR_NONE) {
-                result.setOrigalResult(json.getString("origin_result"));
+                result.setOriginalResult(json.getString("origin_result"));
                 JSONArray arr = json.optJSONArray("results_recognition");
                 if (arr != null) {
                     int size = arr.length();
@@ -68,12 +72,12 @@ public class RecogResult {
         return "nlu_result".equals(resultType);
     }
 
-    public String getOrigalJson() {
-        return origalJson;
+    public String getOriginalJson() {
+        return originalJson;
     }
 
-    public void setOrigalJson(String origalJson) {
-        this.origalJson = origalJson;
+    public void setOriginalJson(String originalJson) {
+        this.originalJson = originalJson;
     }
 
     public String[] getResultsRecognition() {
@@ -84,12 +88,12 @@ public class RecogResult {
         this.resultsRecognition = resultsRecognition;
     }
 
-    public String getSn() {
-        return sn;
+    public String getLogIdSn() {
+        return logIdSn;
     }
 
-    public void setSn(String sn) {
-        this.sn = sn;
+    public void setLogIdSn(String logIdSn) {
+        this.logIdSn = logIdSn;
     }
 
     public int getError() {
@@ -108,12 +112,12 @@ public class RecogResult {
         this.desc = desc;
     }
 
-    public String getOrigalResult() {
-        return origalResult;
+    public String getOriginalResult() {
+        return originalResult;
     }
 
-    public void setOrigalResult(String origalResult) {
-        this.origalResult = origalResult;
+    public void setOriginalResult(String originalResult) {
+        this.originalResult = originalResult;
     }
 
     public String getResultType() {

@@ -11,7 +11,11 @@ import org.json.JSONObject;
 
 import java.util.Map;
 
+/**
+ * @author Administrator
+ */
 public class AsrManager {
+
     private static final String TAG = "AsrManager";
     /**
      * SDK 内部核心 EventManager 类
@@ -23,7 +27,9 @@ public class AsrManager {
      */
     private RecogEventAdapter eventListener;
 
-    // 未release前，只能new一个
+    /**
+     * 未release前，只能new一个;
+     */
     private volatile static boolean inited = false;
 
     /**
