@@ -300,27 +300,27 @@ class _DestinationSearchPageState extends State<DestinationSearchPage> {
       decoration: new BoxDecoration(
           border: new Border(
               bottom: const BorderSide(width: 0.3, color: Colors.grey))),
-      child: Column(
+      child: new Column(
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(12),
-            child: Row(
+          new Container(
+            padding: const EdgeInsets.all(12),
+            child: new Row(
               children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(right: 8),
-                  child: Image(
+                new Container(
+                  margin: const EdgeInsets.only(right: 8),
+                  child: new Image(
                     height: 16,
                     width: 16,
-                    image: AssetImage(icon),
+                    image: new AssetImage(icon),
                   ),
                 ),
                 _title(title),
               ],
             ),
           ),
-          Container(
-            padding: EdgeInsets.only(left: 20),
-            child: Wrap(
+          new Container(
+            padding: const EdgeInsets.only(left: 20),
+            child: new Wrap(
               children: _tabItem(tabList),
             ),
           ),
