@@ -130,7 +130,7 @@ class _SpeakPageState extends State<SpeakPage>
           case PageType.travel:
             NavigatorUtil.push(
                 context,
-                TravelSearchPage(
+                new TravelSearchPage(
                   keyword: speakResult,
                   hideLeft: false,
                 ));

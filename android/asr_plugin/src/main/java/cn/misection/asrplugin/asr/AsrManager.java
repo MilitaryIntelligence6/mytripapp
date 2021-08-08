@@ -1,4 +1,4 @@
-package com.example.plugin.asr;
+package cn.misection.asrplugin.asr;
 
 import android.content.Context;
 import android.util.Log;

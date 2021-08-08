@@ -1,4 +1,4 @@
-package com.example.plugin.asr;
+package cn.misection.asrplugin.asr;
 
 import org.json.JSONArray;
 import org.json.JSONException;

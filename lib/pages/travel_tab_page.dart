@@ -12,9 +12,11 @@ class TravelTabPage extends StatefulWidget {
   final Map params;
   final String groupChannelCode;
 
-  const TravelTabPage(
-      {Key key, this.travelUrl, this.params, this.groupChannelCode})
-      : super(key: key);
+  const TravelTabPage({
+    Key key, this.travelUrl,
+    this.params,
+    this.groupChannelCode
+  }) : super(key: key);
 
   @override
   _TravelTabPageState createState() => new _TravelTabPageState();
@@ -32,7 +34,7 @@ class _TravelTabPageState extends State<TravelTabPage>
   int pageIndex = 1;
   bool _loading = true;
   bool _loadMore = false;
-  ScrollController _scrollController = ScrollController();
+  ScrollController _scrollController = new ScrollController();
 
   @override
   void initState() {
@@ -55,18 +57,18 @@ class _TravelTabPageState extends State<TravelTabPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
-      body: LoadingContainer(
+    return new Scaffold(
+      body: new LoadingContainer(
         isLoading: _loading,
-        child: RefreshIndicator(
+        child: new RefreshIndicator(
           onRefresh: _handleRefresh,
-          child: MediaQuery.removePadding(
+          child: new MediaQuery.removePadding(
               removeTop: true,
               context: context,
-              child: Column(
+              child: new Column(
                 children: <Widget>[
-                  Expanded(
-                    child: StaggeredGridView.countBuilder(
+                  new Expanded(
+                    child: new StaggeredGridView.countBuilder(
                       controller: _scrollController,
                       crossAxisCount: 4,
                       itemCount: travelItems?.length ?? 0,
@@ -142,17 +144,17 @@ class _TravelTabPageState extends State<TravelTabPage>
 Widget _loadMoreIndicator(loadMore){
 
   Widget loadMoreIndicator = loadMore ?
-      Padding(
-        padding: EdgeInsets.all(6),
-        child: Row(
+      new Padding(
+        padding: const EdgeInsets.all(6),
+        child: new Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SpinKitFadingCircle(color: Colors.blue,size: 24,),
-            Padding(padding: EdgeInsets.only(right: 5),),
-            Text("加载中...",style: TextStyle(fontSize: 14,color: Colors.grey),),
+            new SpinKitFadingCircle(color: Colors.blue,size: 24,),
+            new Padding(padding: EdgeInsets.only(right: 5),),
+            const Text("加载中...",style: TextStyle(fontSize: 14,color: Colors.grey),),
           ],
         ),
-      ) : Container();
+      ) : const SizedBox.shrink();
 
   return loadMoreIndicator;
 }
@@ -165,32 +167,32 @@ class _TravelItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return new GestureDetector(
       onTap: () {
         if (item.article.urls != null && item.article.urls.length > 0) {
           NavigatorUtil.push(
-              context,WebView(
+              context, new WebView(
             url: item.article.urls[0].h5Url,
             title: "携程旅拍",
           ));
         }
       },
-      child: Card(
-        child: PhysicalModel(
+      child: new Card(
+        child: new PhysicalModel(
           color: Colors.transparent,
           clipBehavior: Clip.antiAlias,
-          borderRadius: BorderRadius.circular(5),
-          child: Column(
+          borderRadius: new BorderRadius.circular(5),
+          child: new Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               _itemImage(context),
-              Container(
-                padding: EdgeInsets.all(4),
-                child: Text(
+              new Container(
+                padding: const EdgeInsets.all(4),
+                child: new Text(
                   item.article.articleTitle,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 14, color: Colors.black87),
+                  style: const TextStyle(fontSize: 14, color: Colors.black87),
                 ),
               ),
               _infoText()
@@ -201,34 +203,34 @@ class _TravelItem extends StatelessWidget {
     );
   }
 
-  _itemImage(BuildContext context) {
-    return Stack(
+  Widget _itemImage(BuildContext context) {
+    return new Stack(
       children: <Widget>[
-        Image.network(item.article.images[0]?.dynamicUrl),
-        Positioned(
+        new Image.network(item.article.images[0]?.dynamicUrl),
+        new Positioned(
             bottom: 8,
             left: 8,
-            child: Container(
-              padding: EdgeInsets.fromLTRB(5, 1, 5, 1),
-              decoration: BoxDecoration(
+            child: new Container(
+              padding: const EdgeInsets.fromLTRB(5, 1, 5, 1),
+              decoration: new BoxDecoration(
                   color: Colors.black54,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Row(
+                  borderRadius: new BorderRadius.circular(10)),
+              child: new Row(
                 children: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.only(right: 3),
-                      child: Icon(
+                   new Padding(
+                      padding: const EdgeInsets.only(right: 3),
+                      child: new Icon(
                         Icons.location_on,
                         color: Colors.white,
                         size: 12,
                       )),
-                  LimitedBox(
+                  new LimitedBox(
                     maxWidth: MediaQuery.of(context).size.width / 2 - 66,
-                    child: Text(
+                    child: new Text(
                       _poiName(),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.white, fontSize: 12),
+                      style: const TextStyle(color: Colors.white, fontSize: 12),
                     ),
                   )
                 ],
@@ -244,50 +246,50 @@ class _TravelItem extends StatelessWidget {
         : item.article.pois[0]?.poiName ?? "未知";
   }
 
-  _infoText() {
-    return Container(
-      padding: EdgeInsets.fromLTRB(6, 0, 6, 10),
-      child: Row(
+  Widget _infoText() {
+    return new Container(
+      padding: const EdgeInsets.fromLTRB(6, 0, 6, 10),
+      child: new Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Row(
+          new Row(
             children: <Widget>[
-              PhysicalModel(
+              new PhysicalModel(
                 color: Colors.transparent,
                 clipBehavior: Clip.antiAlias,
-                borderRadius: BorderRadius.circular(12),
-                child: Image.network(
+                borderRadius: new BorderRadius.circular(12),
+                child: new Image.network(
                   item.article.author?.coverImage?.dynamicUrl,
                   width: 24,
                   height: 24,
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(5),
+              new Container(
+                padding: const EdgeInsets.all(5),
                 width: 80,
-                child: Text(
+                child: new Text(
                   item.article.author?.nickName,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 12),
+                  style: const TextStyle(fontSize: 12),
                 ),
               )
             ],
           ),
-          Row(
+          new Row(
             children: <Widget>[
-              Icon(
+              new Icon(
                 Icons.thumb_up,
                 size: 14,
                 color: Colors.grey,
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 3),
-                child: Text(
+              new Padding(
+                padding: const EdgeInsets.only(left: 3),
+                child: new Text(
                   item.article.likeCount.toString(),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 10),
+                  style: const TextStyle(fontSize: 10),
                 ),
               )
             ],

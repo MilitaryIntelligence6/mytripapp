@@ -1,4 +1,4 @@
-package com.example.plugin.asr;
+package cn.misection.asrplugin.asr;
 
 /**
  * 与SDK中回调参数的对应关系定义在RecogEventAdapter类中
