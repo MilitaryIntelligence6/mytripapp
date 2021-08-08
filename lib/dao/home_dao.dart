@@ -6,6 +6,8 @@ import 'package:http/http.dart' as Http;
 /// 首页大接口
 class HomeDao {
 
+  HomeDao._();
+
   static const String HOME_URL =
       "https://cdn.lishaoy.net/ctrip/homeConfig.json";
 
