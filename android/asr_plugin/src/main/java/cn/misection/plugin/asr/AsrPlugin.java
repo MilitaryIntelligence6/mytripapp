@@ -15,8 +15,11 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
 
+/**
+ * @author Administrator
+ */
 public class AsrPlugin implements MethodChannel.MethodCallHandler {
-    private final static String TAG = "AsrPlugin";
+    private static final String TAG = "AsrPlugin";
     private final Activity activity;
     private ResultStateful resultStateful;
     private AsrManager asrManager;
