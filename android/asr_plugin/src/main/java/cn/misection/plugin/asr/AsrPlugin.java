@@ -50,6 +50,7 @@ public class AsrPlugin implements MethodChannel.MethodCallHandler {
                 break;
             default:
                 result.notImplemented();
+                break;
         }
     }
 

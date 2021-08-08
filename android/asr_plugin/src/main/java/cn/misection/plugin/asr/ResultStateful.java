@@ -5,7 +5,11 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import io.flutter.plugin.common.MethodChannel;
 
+/**
+ * @author Administrator
+ */
 public class ResultStateful implements MethodChannel.Result {
+
     private final static String TAG = "ResultStateful";
     private MethodChannel.Result result;
     private boolean called;
@@ -46,7 +50,6 @@ public class ResultStateful implements MethodChannel.Result {
         }
         called = true;
         result.notImplemented();
-
     }
 
     private void printError() {

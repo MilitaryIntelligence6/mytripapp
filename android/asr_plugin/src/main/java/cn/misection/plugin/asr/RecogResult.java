@@ -8,6 +8,7 @@ import org.json.JSONObject;
  * @author Administrator
  */
 public class RecogResult {
+
     private static final int ERROR_NONE = 0;
 
     private String originalJson;
@@ -45,8 +46,6 @@ public class RecogResult {
                     }
                     result.setResultsRecognition(recogs);
                 }
-
-
             }
         } catch (JSONException e) {
             e.printStackTrace();
