@@ -1,18 +1,18 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_ctrip/dao/trave_hot_keyword_dao.dart';
-import 'package:flutter_ctrip/dao/travel_params_dao.dart';
-import 'package:flutter_ctrip/dao/travel_tab_dao.dart';
-import 'package:flutter_ctrip/model/travel_hot_keyword_model.dart';
-import 'package:flutter_ctrip/model/travel_params_model.dart';
-import 'package:flutter_ctrip/model/travel_tab_model.dart';
-import 'package:flutter_ctrip/pages/page_type.dart';
-import 'package:flutter_ctrip/pages/speak_page.dart';
-import 'package:flutter_ctrip/pages/travel_search_page.dart';
-import 'package:flutter_ctrip/pages/travel_tab_page.dart';
-import 'package:flutter_ctrip/util/navigator_util.dart';
-import 'package:flutter_ctrip/widget/search_bar.dart';
-import 'package:flutter_ctrip/widget/webview.dart';
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
+import "package:flutter_ctrip/dao/trave_hot_keyword_dao.dart";
+import "package:flutter_ctrip/dao/travel_params_dao.dart";
+import "package:flutter_ctrip/dao/travel_tab_dao.dart";
+import "package:flutter_ctrip/model/travel_hot_keyword_model.dart";
+import "package:flutter_ctrip/model/travel_params_model.dart";
+import "package:flutter_ctrip/model/travel_tab_model.dart";
+import "package:flutter_ctrip/pages/page_type.dart";
+import "package:flutter_ctrip/pages/speak_page.dart";
+import "package:flutter_ctrip/pages/travel_search_page.dart";
+import "package:flutter_ctrip/pages/travel_tab_page.dart";
+import "package:flutter_ctrip/util/navigator_util.dart";
+import "package:flutter_ctrip/widget/search_bar.dart";
+import "package:flutter_ctrip/widget/webview.dart";
 
 class TravelPage extends StatefulWidget {
   @override
@@ -28,7 +28,7 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
   TravelParamsModel travelParamsModel;
   TravelHotKeywordModel travelHotKeywordModel;
   List<HotKeyword> hotKeyWords;
-  String defaultText = '试试搜\“花式过五一\”';
+  String defaultText = "试试搜\“花式过五一\”";
 
   @override
   Widget build(BuildContext context) {
@@ -130,10 +130,10 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
       context,
       new WebView(
         url:
-            'https://m.ctrip.com/webapp/you/tripshoot/user/home?seo=0&isHideHeader=true&isHideNavBar=YES&navBarStyle=white',
+            "https://m.ctrip.com/webapp/you/tripshoot/user/home?seo=0&isHideHeader=true&isHideNavBar=YES&navBarStyle=white",
         hideHead: false,
         hideAppBar: false,
-        title: '我的旅拍',
+        title: "我的旅拍",
       ),
     );
   }
