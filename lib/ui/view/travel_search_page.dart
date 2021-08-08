@@ -8,6 +8,7 @@ import "package:flutter_ctrip/ui/view/speak_page.dart";
 import "package:flutter_ctrip/util/navigator_util.dart";
 import "package:flutter_ctrip/ui/widget/search_bar.dart";
 import "package:flutter_ctrip/ui/widget/webview.dart";
+import 'package:fluttertoast/fluttertoast.dart';
 
 const List<String> TYPES = ["topic", "place", "user", "hotword", "district"];
 const String URL =
@@ -60,7 +61,7 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
             removeRight: true,
             child: _appBar(),
           ),
-          _searItems(),
+          _searchItems(),
         ],
       ),
     );
@@ -92,10 +93,11 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
                   Navigator.pop(context);
                 },
                 onRightButtonClicked: () {
-                  bool showWebView = false;
-                  for (int i = 0; i <itemsList.length; ++i) {
+                  bool webViewShown = false;
+                  for (int i = 0; i < itemsList.length; ++i) {
+                    Fluttertoast.showToast(msg: itemsList[i].title);
                     if (itemsList[i].title == keyword?.trim() ?? false) {
-                      showWebView = true;
+                      webViewShown = true;
                       NavigatorUtil.push(
                           context,
                           new MyWebView(
@@ -103,17 +105,15 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
                             url: "https://m.ctrip.com/webapp/you/tripshoot/user/home?seo=0&clientAuth=" +
                                 keyword +
                                 "&autoawaken=close&popup=close&isHideHeader=true&isHideNavBar=YES&navBarStyle=white",
-                          )
-                      );
+                          ));
                       break;
                     }
                   }
-                  if (!showWebView) {
-                    Scaffold.of(context).showSnackBar(SnackBar(
-                        content: const Text(
-                            "抱歉, 目前只支持搜索比基热搜出现的词条哟"
-                        ),
-                    ));
+                  if (!webViewShown) {
+                    Fluttertoast.showToast(
+                      msg: "抱歉, 目前旅拍搜索只支持搜索笔记热搜里那几个!",
+                      timeInSecForIosWeb: 3,
+                    );
                   }
                 },
                 onChanged: _onTextChange,
@@ -157,7 +157,7 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
     );
   }
 
-  Widget _searItems() {
+  Widget _searchItems() {
     return _isHidden
         ? new MediaQuery.removePadding(
             removeTop: true,
@@ -189,10 +189,10 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
               ));
         },
         child: new Container(
-          padding: const  EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
-              border:
-                  const Border(bottom: const BorderSide(width: 0.3, color: Colors.grey))),
+              border: const Border(
+                  bottom: const BorderSide(width: 0.3, color: Colors.grey))),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -239,8 +239,8 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         child: new Container(
           padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
-              border:
-                  const Border(bottom: const BorderSide(width: 0.3, color: Colors.grey))),
+              border: const Border(
+                  bottom: const BorderSide(width: 0.3, color: Colors.grey))),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -285,8 +285,8 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         child: new Container(
           padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
-              border:
-                  const Border(bottom: const  BorderSide(width: 0.3, color: Colors.grey))),
+              border: const Border(
+                  bottom: const BorderSide(width: 0.3, color: Colors.grey))),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -346,8 +346,8 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         child: new Container(
           padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
-              border:
-                  const Border(bottom: const BorderSide(width: 0.3, color: Colors.grey))),
+              border: const Border(
+                  bottom: const BorderSide(width: 0.3, color: Colors.grey))),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -384,8 +384,8 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         child: new Container(
           padding: const EdgeInsets.all(10),
           decoration: const BoxDecoration(
-              border:
-                  const Border(bottom: const BorderSide(width: 0.3, color: Colors.grey))),
+              border: const Border(
+                  bottom: const BorderSide(width: 0.3, color: Colors.grey))),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
