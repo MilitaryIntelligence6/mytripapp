@@ -7,7 +7,6 @@ import "package:http/http.dart" as http;
 //旅拍搜索接口
 class TravelSearchHotDao {
 
-
   static const Map<String, Object> PARAMS = {
     "pageCode":"appSuggest",
     "locationDistrictId":0,

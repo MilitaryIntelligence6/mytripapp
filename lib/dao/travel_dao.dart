@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 /// 旅拍页接口
 class TravelDao {
 
+  TravelDao._();
 
   static const Map<String, Object> Params = {
     "districtId": -1,

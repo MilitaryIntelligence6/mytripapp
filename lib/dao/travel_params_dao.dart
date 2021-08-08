@@ -5,6 +5,9 @@ import 'package:http/http.dart' as http;
 
 /// 旅拍类别接口
 class TravelParamsDao {
+
+  TravelParamsDao._();
+
   static Future<TravelParamsModel> fetch() async {
     final response = await http
         .get('http://www.devio.org/io/flutter_app/json/travel_page.json');

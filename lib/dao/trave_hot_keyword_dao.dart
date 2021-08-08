@@ -8,6 +8,8 @@ import "package:http/http.dart" as Http;
 /// 旅拍搜索接口
 class TravelHotKeywordDao {
 
+  TravelHotKeywordDao._();
+
   static const Map<String, Object> PARAMS = {
     "head":{
       "cid":"09031043410934928682",

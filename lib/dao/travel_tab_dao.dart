@@ -6,6 +6,9 @@ import 'package:http/http.dart' as http;
 
 //旅拍类别接口
 class TravelTabDao {
+
+  TravelTabDao._();
+
   static Future<TravelTabModel> fetch() async {
     final response = await http
         .get('https://m.ctrip.com/restapi/soa2/15612/json/getTripShootHomePage');
