@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_ctrip/model/common_model.dart';
-import 'package:flutter_ctrip/widget/webview.dart';
+import "package:flutter/material.dart";
+import "package:flutter_ctrip/model/common_model.dart";
+import "package:flutter_ctrip/widget/webview.dart";
 
 class SubNav extends StatelessWidget {
   final List<CommonModel> subNavList;
@@ -62,7 +62,7 @@ class SubNav extends StatelessWidget {
             context,
             new MaterialPageRoute(
               builder: (context) =>
-              new WebView(
+              new MyWebView(
                 url: model.url,
                 statusBarColor: model.statusBarColor,
                 hideAppBar: model.hideAppBar,

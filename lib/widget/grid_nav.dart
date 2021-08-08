@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_ctrip/model/common_model.dart';
-import 'package:flutter_ctrip/model/grid_nav_model.dart';
-import 'package:flutter_ctrip/widget/webview.dart';
+import "package:flutter/material.dart";
+import "package:flutter_ctrip/model/common_model.dart";
+import "package:flutter_ctrip/model/grid_nav_model.dart";
+import "package:flutter_ctrip/widget/webview.dart";
 
 class GridNav extends StatelessWidget {
   final GridNavModel gridNavModel;
@@ -45,8 +45,8 @@ class GridNav extends StatelessWidget {
     items.forEach((item){
       expandItem.add(Expanded(child: item,flex: 1,));
     });
-    Color startColor = Color(int.parse('0xff'+gridNavItem.startColor));
-    Color endColor = Color(int.parse('0xff'+gridNavItem.endColor));
+    Color startColor = Color(int.parse("0xff"+gridNavItem.startColor));
+    Color endColor = Color(int.parse("0xff"+gridNavItem.endColor));
     return Container(
       height: 88,
       margin: first?null:EdgeInsets.only(top: 3),
@@ -131,7 +131,7 @@ class GridNav extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => WebView(
+            builder: (context) => MyWebView(
               url: model.url,
               title: model.title,
               statusBarColor: model.statusBarColor,

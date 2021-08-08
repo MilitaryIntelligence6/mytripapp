@@ -157,7 +157,7 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         onTap: () {
           NavigatorUtil.push(
               context,
-              new WebView(
+              new MyWebView(
                 title: itemsList[position].name,
                 url: itemsList[position].h5Url,
               ));
@@ -205,7 +205,7 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         onTap: () {
           NavigatorUtil.push(
               context,
-              new WebView(
+              new MyWebView(
                 title: itemsList[position].name,
                 url: itemsList[position].h5Url,
               ));
@@ -249,7 +249,7 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         onTap: () {
           NavigatorUtil.push(
               context,
-              new WebView(
+              new MyWebView(
                 title: itemsList[position].title,
                 url: "https://m.ctrip.com/webapp/you/tripshoot/user/home?seo=0&clientAuth=" +
                     itemsList[position].clientAuth +
@@ -310,7 +310,7 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         onTap: () {
           NavigatorUtil.push(
               context,
-              new WebView(
+              new MyWebView(
                 title: itemsList[position].name,
                 url: "https://m.ctrip.com/webapp/you/livestream/paipai/searchResult?districtId=0&userLat=-180&userLng=-180&keyword=" +
                     itemsList[position].name +
@@ -350,7 +350,7 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         onTap: () {
           NavigatorUtil.push(
               context,
-              new WebView(
+              new MyWebView(
                 title: itemsList[position].name,
                 url: itemsList[position].h5Url,
               ));
@@ -401,7 +401,7 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         onTap: () {
           NavigatorUtil.push(
               context,
-              new WebView(
+              new MyWebView(
                 url: resourceItem.h5Url,
                 title: "携程旅拍",
               ));
@@ -424,7 +424,7 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
         onTap: () {
           NavigatorUtil.push(
               context,
-              new WebView(
+              new MyWebView(
                 url: resourceItem.h5Url,
                 title: "携程旅拍",
               ));

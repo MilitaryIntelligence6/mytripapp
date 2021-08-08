@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_ctrip/util/navigator_util.dart';
-import 'package:flutter_ctrip/widget/webview.dart';
+import "package:flutter/cupertino.dart";
+import "package:flutter/material.dart";
+import "package:flutter_ctrip/util/navigator_util.dart";
+import "package:flutter_ctrip/widget/webview.dart";
 
 /// 格子视图, 就是酒店机票旅游那里;
 class GridNavNew extends StatefulWidget {
@@ -215,7 +215,7 @@ class _GridNavNewState extends State<GridNavNew> {
     //                                 alignment: AlignmentDirectional.bottomStart,
     //                                 children: <Widget>[
     //                                   new Image.asset(
-    //                                     'images/grid-nav-items-train.png',
+    //                                     "images/grid-nav-items-train.png",
     //                                     width: 32,
     //                                     fit: BoxFit.contain,
     //                                     alignment:
@@ -243,7 +243,7 @@ class _GridNavNewState extends State<GridNavNew> {
     //                                 NavigatorUtil.push(
     //                                     context,
     //                                     new WebView(
-    //                                       url: 'https://m.ctrip.com/webapp/bus/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F',
+    //                                       url: "https://m.ctrip.com/webapp/bus/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
     //                                       hideAppBar: true,
     //                                     ),
     //                                 );
@@ -296,8 +296,8 @@ class _GridNavNewState extends State<GridNavNew> {
                 children: <Widget>[
                   GestureDetector(
                     onTap: () {
-                      NavigatorUtil.push(context, WebView(
-                        url: 'https://m.ctrip.com/webapp/hotel/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F',
+                      NavigatorUtil.push(context, MyWebView(
+                        url: "https://m.ctrip.com/webapp/hotel/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                         hideAppBar: true,
                       ));
                     },
@@ -315,7 +315,7 @@ class _GridNavNewState extends State<GridNavNew> {
                         alignment: AlignmentDirectional.bottomEnd,
                         children: <Widget>[
                           Image.asset(
-                            'images/grid-nav-items-hotel.png',
+                            "images/grid-nav-items-hotel.png",
                             width: 70,
                             fit: BoxFit.contain,
                             alignment: AlignmentDirectional.bottomEnd,
@@ -324,7 +324,7 @@ class _GridNavNewState extends State<GridNavNew> {
                             alignment: AlignmentDirectional.centerStart,
                             margin: EdgeInsets.only(left: 16),
                             child: Text(
-                              '酒店',
+                              "酒店",
                               style: TextStyle(fontSize: 14, color: Colors.white),
                             ),
                           ),
@@ -336,8 +336,8 @@ class _GridNavNewState extends State<GridNavNew> {
                     flex: 1,
                     child: GestureDetector(
                       onTap: (){
-                        NavigatorUtil.push(context, WebView(
-                          url: 'https://m.ctrip.com/webapp/inn-v2/home?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F',
+                        NavigatorUtil.push(context, MyWebView(
+                          url: "https://m.ctrip.com/webapp/inn-v2/home?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                           hideAppBar: true,
                         ));
                       },
@@ -353,7 +353,7 @@ class _GridNavNewState extends State<GridNavNew> {
                           alignment: AlignmentDirectional.bottomStart,
                           children: <Widget>[
                             Image.asset(
-                              'images/grid-nav-items-minsu.png',
+                              "images/grid-nav-items-minsu.png",
                               width: 32,
                               fit: BoxFit.contain,
                               alignment: AlignmentDirectional.bottomStart,
@@ -361,7 +361,7 @@ class _GridNavNewState extends State<GridNavNew> {
                             Container(
                               alignment: AlignmentDirectional.center,
                               child: Text(
-                                '民宿·客栈',
+                                "民宿·客栈",
                                 style: TextStyle(fontSize: 14, color: Colors.white),
                               ),
                             ),
@@ -374,8 +374,8 @@ class _GridNavNewState extends State<GridNavNew> {
                     flex: 2,
                     child: GestureDetector(
                       onTap: (){
-                        NavigatorUtil.push(context, WebView(
-                          url: 'https://m.ctrip.com/webapp/vacations/idiytour/newindex?sourcefrom=h5_xingongge&title=%E6%9C%BA%E7%A5%A8%E3%83%BB%E7%81%AB%E8%BD%A6%E7%A5%A8%2B%E9%85%92%E5%BA%97&isHideNavBar=YES&secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F',
+                        NavigatorUtil.push(context, MyWebView(
+                          url: "https://m.ctrip.com/webapp/vacations/idiytour/newindex?sourcefrom=h5_xingongge&title=%E6%9C%BA%E7%A5%A8%E3%83%BB%E7%81%AB%E8%BD%A6%E7%A5%A8%2B%E9%85%92%E5%BA%97&isHideNavBar=YES&secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                           hideAppBar: true,
                         ));
                       },
@@ -388,7 +388,7 @@ class _GridNavNewState extends State<GridNavNew> {
                           alignment: AlignmentDirectional.bottomEnd,
                           children: <Widget>[
                             Image.asset(
-                              'images/grid-nav-items-jhj.png',
+                              "images/grid-nav-items-jhj.png",
                               width: 90,
                               fit: BoxFit.contain,
                               alignment: AlignmentDirectional.bottomEnd,
@@ -396,7 +396,7 @@ class _GridNavNewState extends State<GridNavNew> {
                             Container(
                               alignment: AlignmentDirectional.center,
                               child: Text(
-                                '机票/火车票+酒店',
+                                "机票/火车票+酒店",
                                 style: TextStyle(fontSize: 14, color: Color(0xffa05416)),
                               ),
                             ),
@@ -415,7 +415,7 @@ class _GridNavNewState extends State<GridNavNew> {
                                   )
                                 ),
                                 child: Text(
-                                  '方便又便宜',
+                                  "方便又便宜",
                                   style: TextStyle(fontSize: 12, color: Colors.white),
                                 ),
                               ),
@@ -443,10 +443,10 @@ class _GridNavNewState extends State<GridNavNew> {
                 children: <Widget>[
                   GestureDetector(
                     onTap: (){
-                      NavigatorUtil.push(context, WebView(
-                        url: 'https://m.ctrip.com/html5/flight/swift/index?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F',
+                      NavigatorUtil.push(context, MyWebView(
+                        url: "https://m.ctrip.com/html5/flight/swift/index?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                         hideAppBar: false,
-                        title: '机票',
+                        title: "机票",
                       ));
                     },
                     child: Container(
@@ -462,7 +462,7 @@ class _GridNavNewState extends State<GridNavNew> {
                         alignment: AlignmentDirectional.bottomEnd,
                         children: <Widget>[
                           Image.asset(
-                            'images/grid-nav-items-flight.png',
+                            "images/grid-nav-items-flight.png",
                             width: 70,
                             fit: BoxFit.contain,
                             alignment: AlignmentDirectional.bottomEnd,
@@ -471,7 +471,7 @@ class _GridNavNewState extends State<GridNavNew> {
                             alignment: AlignmentDirectional.centerStart,
                             margin: EdgeInsets.only(left: 16),
                             child: Text(
-                              '机票',
+                              "机票",
                               style: TextStyle(fontSize: 14, color: Colors.white),
                             ),
                           ),
@@ -483,8 +483,8 @@ class _GridNavNewState extends State<GridNavNew> {
                     flex: 1,
                     child: GestureDetector(
                       onTap: (){
-                        NavigatorUtil.push(context, WebView(
-                          url: 'https://m.ctrip.com/webapp/train/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F#/index?VNK=5661dfc9',
+                        NavigatorUtil.push(context, MyWebView(
+                          url: "https://m.ctrip.com/webapp/train/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F#/index?VNK=5661dfc9",
                           hideAppBar: true,
                         ));
                       },
@@ -500,7 +500,7 @@ class _GridNavNewState extends State<GridNavNew> {
                           alignment: AlignmentDirectional.bottomStart,
                           children: <Widget>[
                             Image.asset(
-                              'images/grid-nav-items-train.png',
+                              "images/grid-nav-items-train.png",
                               width: 32,
                               fit: BoxFit.contain,
                               alignment: AlignmentDirectional.bottomStart,
@@ -508,7 +508,7 @@ class _GridNavNewState extends State<GridNavNew> {
                             Container(
                               alignment: AlignmentDirectional.center,
                               child: Text(
-                                '火车票',
+                                "火车票",
                                 style: TextStyle(fontSize: 14, color: Colors.white),
                               ),
                             ),
@@ -521,8 +521,8 @@ class _GridNavNewState extends State<GridNavNew> {
                     flex: 1,
                     child: GestureDetector(
                       onTap: (){
-                        NavigatorUtil.push(context, WebView(
-                          url: 'https://m.ctrip.com/webapp/bus/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F',
+                        NavigatorUtil.push(context, MyWebView(
+                          url: "https://m.ctrip.com/webapp/bus/?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                           hideAppBar: true,
                         ));
                       },
@@ -537,7 +537,7 @@ class _GridNavNewState extends State<GridNavNew> {
                         child: Container(
                           alignment: AlignmentDirectional.center,
                           child: Text(
-                            '汽车·船票',
+                            "汽车·船票",
                             style: TextStyle(fontSize: 14, color: Colors.white),
                           ),
                         ),
@@ -548,17 +548,17 @@ class _GridNavNewState extends State<GridNavNew> {
                     flex: 1,
                     child: GestureDetector(
                       onTap: (){
-                        NavigatorUtil.push(context, WebView(
-                          url: 'https://m.ctrip.com/webapp/cw/car/home/index.html',
+                        NavigatorUtil.push(context, MyWebView(
+                          url: "https://m.ctrip.com/webapp/cw/car/home/index.html",
                           hideAppBar: false,
-                          title: '专车·租车',
+                          title: "专车·租车",
                         ));
                       },
                       child: Container(
                         child: Container(
                           alignment: AlignmentDirectional.center,
                           child: Text(
-                            '专车·租车',
+                            "专车·租车",
                             style: TextStyle(fontSize: 14, color: Colors.white),
                           ),
                         ),
@@ -583,8 +583,8 @@ class _GridNavNewState extends State<GridNavNew> {
                 children: <Widget>[
                   GestureDetector(
                     onTap: (){
-                      NavigatorUtil.push(context, WebView(
-                        url: 'https://m.ctrip.com/webapp/vacations/tour/vacations?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F',
+                      NavigatorUtil.push(context, MyWebView(
+                        url: "https://m.ctrip.com/webapp/vacations/tour/vacations?secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                         hideAppBar: true,
                       ));
                     },
@@ -601,7 +601,7 @@ class _GridNavNewState extends State<GridNavNew> {
                         alignment: AlignmentDirectional.bottomEnd,
                         children: <Widget>[
                           Image.asset(
-                            'images/grid-nav-items-travel.png',
+                            "images/grid-nav-items-travel.png",
                             width: 80,
                             fit: BoxFit.contain,
                             alignment: AlignmentDirectional.bottomEnd,
@@ -610,7 +610,7 @@ class _GridNavNewState extends State<GridNavNew> {
                             alignment: AlignmentDirectional.centerStart,
                             margin: EdgeInsets.only(left: 16),
                             child: Text(
-                              '旅游',
+                              "旅游",
                               style: TextStyle(fontSize: 14, color: Colors.white),
                             ),
                           ),
@@ -622,10 +622,10 @@ class _GridNavNewState extends State<GridNavNew> {
                     flex: 1,
                     child: GestureDetector(
                       onTap: (){
-                        NavigatorUtil.push(context, WebView(
-                          url: 'https://m.ctrip.com/webapp/train/crh/plan/crhList.html?from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F',
+                        NavigatorUtil.push(context, MyWebView(
+                          url: "https://m.ctrip.com/webapp/train/crh/plan/crhList.html?from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                           hideAppBar: false,
-                          title: '高铁游',
+                          title: "高铁游",
                         ));
                       },
                       child: Container(
@@ -640,7 +640,7 @@ class _GridNavNewState extends State<GridNavNew> {
                           alignment: AlignmentDirectional.bottomStart,
                           children: <Widget>[
                             Image.asset(
-                              'images/grid-nav-items-dingzhi.png',
+                              "images/grid-nav-items-dingzhi.png",
                               width: 40,
                               fit: BoxFit.contain,
                               alignment: AlignmentDirectional.bottomStart,
@@ -648,7 +648,7 @@ class _GridNavNewState extends State<GridNavNew> {
                             Container(
                               alignment: AlignmentDirectional.center,
                               child: Text(
-                                '高铁游',
+                                "高铁游",
                                 style: TextStyle(fontSize: 14, color: Colors.white),
                               ),
                             ),
@@ -661,8 +661,8 @@ class _GridNavNewState extends State<GridNavNew> {
                     flex: 1,
                     child: GestureDetector(
                       onTap: (){
-                        NavigatorUtil.push(context, WebView(
-                          url: 'https://m.ctrip.com/webapp/cruise/index?ctm_ref=C_vac_cruise&secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F',
+                        NavigatorUtil.push(context, MyWebView(
+                          url: "https://m.ctrip.com/webapp/cruise/index?ctm_ref=C_vac_cruise&secondwakeup=true&dpclickjump=true&allianceid=66672&sid=1693366&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                           hideAppBar: true,
                         ));
                       },
@@ -677,7 +677,7 @@ class _GridNavNewState extends State<GridNavNew> {
                         child: Container(
                           alignment: AlignmentDirectional.center,
                           child: Text(
-                            '游轮游',
+                            "游轮游",
                             style: TextStyle(fontSize: 14, color: Colors.white),
                           ),
                         ),
@@ -688,8 +688,8 @@ class _GridNavNewState extends State<GridNavNew> {
                     flex: 1,
                     child: GestureDetector(
                       onTap: (){
-                        NavigatorUtil.push(context, WebView(
-                          url: 'https://m.ctrip.com/webapp/dingzhi/index?ctm_ref=C_vac_custom&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F',
+                        NavigatorUtil.push(context, MyWebView(
+                          url: "https://m.ctrip.com/webapp/dingzhi/index?ctm_ref=C_vac_custom&from=https%3A%2F%2Fm.ctrip.com%2Fhtml5%2F",
                           hideAppBar: true,
                         ));
                       },
@@ -697,7 +697,7 @@ class _GridNavNewState extends State<GridNavNew> {
                         child: Container(
                           alignment: AlignmentDirectional.center,
                           child: Text(
-                            '定制游',
+                            "定制游",
                             style: TextStyle(fontSize: 14, color: Colors.white),
                           ),
                         ),

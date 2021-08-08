@@ -128,7 +128,7 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin {
   void _jumpToUser() {
     NavigatorUtil.push(
       context,
-      new WebView(
+      new MyWebView(
         url:
             "https://m.ctrip.com/webapp/you/tripshoot/user/home?seo=0&isHideHeader=true&isHideNavBar=YES&navBarStyle=white",
         hideHead: false,

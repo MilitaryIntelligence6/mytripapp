@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                                         context,
                                         // push 是方法, 必须把路由也传进去;
                                         new MaterialPageRoute(
-                                          builder: (context) => new WebView(
+                                          builder: (context) => new MyWebView(
                                             // 点击图片跳转的url, 如果没有, 点的动, 但会一直转圈
                                             // 不会有回应, 一直loading;
                                             url: model.url,
@@ -275,7 +275,7 @@ class _HomePageState extends State<HomePage> {
   void _jumpToUser() {
     NavigatorUtil.push(
         context,
-        new WebView(
+        new MyWebView(
           url:
               "https://m.ctrip.com/webapp/servicechatv2/messagelist/?from=%2Fwebapp%2Fmyctrip%2Findex",
           hideHead: false,

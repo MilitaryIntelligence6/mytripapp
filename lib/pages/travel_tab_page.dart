@@ -171,7 +171,7 @@ class _TravelItem extends StatelessWidget {
       onTap: () {
         if (item.article.urls != null && item.article.urls.length > 0) {
           NavigatorUtil.push(
-              context, new WebView(
+              context, new MyWebView(
             url: item.article.urls[0].h5Url,
             title: "携程旅拍",
           ));

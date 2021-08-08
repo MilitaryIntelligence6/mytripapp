@@ -1,21 +1,12 @@
-import 'dart:async';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_ctrip/widget/loading_container.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import "dart:async";
+import "package:flutter/foundation.dart";
+import "package:flutter/material.dart";
+import "package:flutter/services.dart";
+import "package:flutter/widgets.dart";
+import "package:flutter_ctrip/widget/loading_container.dart";
+import "package:flutter_webview_plugin/flutter_webview_plugin.dart";
 
-const CATCH_URLS = [
-  'm.ctrip.com/',
-  'm.ctrip.com/html5/',
-  'm.ctrip.com/html5',
-  'm.ctrip.com/html5/you/',
-  'm.ctrip.com/webapp/you/foods/',
-  'm.ctrip.com/webapp/vacations/tour/list'
-];
-
-class WebView extends StatefulWidget {
+class MyWebView extends StatefulWidget {
   final String url;
   final String statusBarColor;
   final String title;
@@ -23,7 +14,7 @@ class WebView extends StatefulWidget {
   final bool backForbid;
   final bool hideHead;
 
-  WebView(
+  MyWebView(
       {this.url,
       this.statusBarColor,
       this.title,
@@ -32,11 +23,21 @@ class WebView extends StatefulWidget {
       this.hideHead = false});
 
   @override
-  _WebViewState createState() => new _WebViewState();
+  _MyWebViewState createState() => new _MyWebViewState();
 }
 
-class _WebViewState extends State<WebView> {
-  final webViewReference = new FlutterWebviewPlugin();
+class _MyWebViewState extends State<MyWebView> {
+
+  static const List<String> CATCH_URLS = [
+    "m.ctrip.com/",
+    "m.ctrip.com/html5/",
+    "m.ctrip.com/html5",
+    "m.ctrip.com/html5/you/",
+    "m.ctrip.com/webapp/you/foods/",
+    "m.ctrip.com/webapp/vacations/tour/list"
+  ];
+
+  final FlutterWebviewPlugin webViewReference = new FlutterWebviewPlugin();
   StreamSubscription<String> _onUrlChanged;
   StreamSubscription<WebViewStateChanged> _onStateChanged;
   StreamSubscription<WebViewHttpError> _onHttpError;

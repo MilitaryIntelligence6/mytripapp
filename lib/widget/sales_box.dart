@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_ctrip/model/common_model.dart';
-import 'package:flutter_ctrip/model/sales_box_model.dart';
-import 'package:flutter_ctrip/widget/webview.dart';
+import "package:flutter/material.dart";
+import "package:flutter_ctrip/model/common_model.dart";
+import "package:flutter_ctrip/model/sales_box_model.dart";
+import "package:flutter_ctrip/widget/webview.dart";
 
 class SalesBox extends StatelessWidget {
   final SalesBoxModel salesBoxModel;
@@ -45,7 +45,7 @@ class SalesBox extends StatelessWidget {
                   Navigator.push(
                     context,
                     new MaterialPageRoute(
-                      builder: (context) => new WebView(
+                      builder: (context) => new MyWebView(
                         url: salesBoxModel.moreUrl,
                         title: "更多活动",
                       ),
@@ -112,7 +112,7 @@ class SalesBox extends StatelessWidget {
           Navigator.push(
             context,
             new MaterialPageRoute(
-              builder: (context) => new WebView(
+              builder: (context) => new MyWebView(
                 url: model.url,
                 title: model.title ?? "活动",
               ),

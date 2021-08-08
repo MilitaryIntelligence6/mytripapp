@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_ctrip/model/travel_hot_keyword_model.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
+import "package:flutter/material.dart";
+import "package:flutter_ctrip/model/travel_hot_keyword_model.dart";
+import "package:flutter_swiper/flutter_swiper.dart";
 
 enum SearchBarType { home, normal, homeLight }
 
@@ -84,7 +84,7 @@ class _SearchBarState extends State<SearchBar> {
             Container(
               padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
               child: Text(
-                '搜索',
+                "搜索",
                 style: TextStyle(color: Colors.blue, fontSize: 17),
               ),
             ),
@@ -96,9 +96,9 @@ class _SearchBarState extends State<SearchBar> {
   _genHomeSearch() {
     String sMessage;
     if (widget.searchBarType == SearchBarType.home) {
-      sMessage = 'images/xiaoxi_white.png';
+      sMessage = "images/xiaoxi_white.png";
     } else {
-      sMessage = 'images/xiaoxi_grey.png';
+      sMessage = "images/xiaoxi_grey.png";
     }
     return Container(
       child: Row(children: <Widget>[
@@ -108,9 +108,9 @@ class _SearchBarState extends State<SearchBar> {
         ),
         _wrapTap(
             widget.rightIcon
-                ? rightIcon('images/kefu.png')
+                ? rightIcon("images/kefu.png")
                 : widget.isUserIcon
-                    ? rightIcon('images/user1.png')
+                    ? rightIcon("images/user1.png")
                     : rightIcon(sMessage),
             widget.rightButtonClick),
       ]),
@@ -122,7 +122,7 @@ class _SearchBarState extends State<SearchBar> {
     if (widget.searchBarType == SearchBarType.home) {
       inputBoxColor = Colors.white;
     } else {
-      inputBoxColor = Color(int.parse('0xffEDEDED'));
+      inputBoxColor = Color(int.parse("0xffEDEDED"));
     }
     return Container(
       height: 34,
@@ -134,7 +134,7 @@ class _SearchBarState extends State<SearchBar> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image.asset(
-            'images/sousuo.png',
+            "images/sousuo.png",
             width: 17,
           ),
           Expanded(
@@ -155,7 +155,7 @@ class _SearchBarState extends State<SearchBar> {
                             Theme.of(context).platform == TargetPlatform.iOS
                                 ? EdgeInsets.fromLTRB(4, 0, 4, 15)
                                 : EdgeInsets.fromLTRB(4, 0, 4, 15),
-                        hintText: widget.hint ?? '',
+                        hintText: widget.hint ?? "",
                         hintStyle: TextStyle(
                           fontSize: 14,
                           color: Colors.grey,
@@ -195,7 +195,7 @@ class _SearchBarState extends State<SearchBar> {
           !showClear
               ? _wrapTap(
                   Image.asset(
-                    'images/yuyin.png',
+                    "images/yuyin.png",
                     width: 17,
                   ),
                   widget.speakClick)
@@ -208,7 +208,7 @@ class _SearchBarState extends State<SearchBar> {
                   setState(() {
                     _controller.clear();
                   });
-                  _onChanged('');
+                  _onChanged("");
                 })
         ],
       ),

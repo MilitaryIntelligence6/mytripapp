@@ -85,7 +85,7 @@ class _SearchPageState extends State<SearchPage> {
         Navigator.push(
           context,
           new MaterialPageRoute(
-            builder: (context) => new WebView(
+            builder: (context) => new MyWebView(
               url: item.url,
               title: "详情",
             ),

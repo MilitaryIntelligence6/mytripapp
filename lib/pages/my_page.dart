@@ -13,7 +13,7 @@ class _MyPageState extends State<MyPage> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return new Scaffold(
-      body: new WebView(
+      body: new MyWebView(
         url: "https://m.ctrip.com/webapp/myctrip/",
         hideAppBar: true,
         backForbid: true,

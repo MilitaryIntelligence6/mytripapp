@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 class ScalableBox extends StatefulWidget {
   final List<Row> visibleSpans;
@@ -42,8 +42,8 @@ class _ScalableBoxState extends State<ScalableBox> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          '展开',
-                          style: TextStyle(color: Colors.blue, fontFamily: ''),
+                          "展开",
+                          style: TextStyle(color: Colors.blue, fontFamily: ""),
                         ),
                         Icon(
                           Icons.keyboard_arrow_down,
@@ -57,8 +57,8 @@ class _ScalableBoxState extends State<ScalableBox> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          '收起',
-                          style: TextStyle(color: Colors.blue, fontFamily: ''),
+                          "收起",
+                          style: TextStyle(color: Colors.blue, fontFamily: ""),
                         ),
                         Icon(
                           Icons.keyboard_arrow_up,

@@ -331,7 +331,7 @@ class _DestinationPageState extends State<DestinationPage>
   void _jumpToService() {
     NavigatorUtil.push(
         context,
-        new WebView(
+        new MyWebView(
           url:
           "https://m.ctrip.com/webapp/servicechatv2/?bizType=1105&channel=VAC&orderInfo=&isPreSale=1&pageCode=220008&thirdPartytoken=F2BCB02915C58496DD7DEA00278B68AF&sceneCode=0&isFreeLogin=",
           hideAppBar: false,
@@ -488,7 +488,7 @@ class _DestinationPageState extends State<DestinationPage>
   void _openWebView(String keyword, int id) {
     NavigatorUtil.push(
         context,
-        new WebView(
+        new MyWebView(
           url:
           "https://m.ctrip.com/webapp/vacations/tour/list?identifier=choice&kwd=${keyword}&poid=${id
               .toString()}&poitype=D&salecity=2&scity=2&searchtype=all&tab=126",
