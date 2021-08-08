@@ -470,7 +470,7 @@ class _DestinationPageState extends State<DestinationPage>
                   imgName,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: const TextStyle(color: Color(0xff333333).withAlpha(220)),
+                  style: new TextStyle(color: new Color(0xff333333).withAlpha(220)),
                 ),
               ),
             ],
