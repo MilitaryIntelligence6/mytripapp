@@ -1,16 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:flutter_ctrip/dao/travel_dao.dart';
-import 'package:flutter_ctrip/model/travel_model.dart';
-import 'package:flutter_ctrip/util/navigator_util.dart';
-import 'package:flutter_ctrip/widget/loading_container.dart';
-import 'package:flutter_ctrip/widget/webview.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-const _TRAVEL_URL =
-    'https://m.ctrip.com/restapi/soa2/16189/json/searchTripShootListForHomePageV2?_fxpcqlniredt=09031014111431397988&__gw_appid=99999999&__gw_ver=1.0&__gw_from=10650013707&__gw_platform=H5';
-
-const PAGE_SIZE = 10;
+import "package:flutter/material.dart";
+import "package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart";
+import "package:flutter_ctrip/dao/travel_dao.dart";
+import "package:flutter_ctrip/model/travel_model.dart";
+import "package:flutter_ctrip/util/navigator_util.dart";
+import "package:flutter_ctrip/widget/loading_container.dart";
+import "package:flutter_ctrip/widget/webview.dart";
+import "package:flutter_spinkit/flutter_spinkit.dart";
 
 class TravelTabPage extends StatefulWidget {
   final String travelUrl;
@@ -27,6 +22,12 @@ class TravelTabPage extends StatefulWidget {
 
 class _TravelTabPageState extends State<TravelTabPage>
     with AutomaticKeepAliveClientMixin {
+
+  static const String _TRAVEL_URL =
+      "https://m.ctrip.com/restapi/soa2/16189/json/searchTripShootListForHomePageV2?_fxpcqlniredt=09031014111431397988&__gw_appid=99999999&__gw_ver=1.0&__gw_from=10650013707&__gw_platform=H5";
+
+  static const int PAGE_SIZE = 10;
+
   List<TravelItem> travelItems;
   int pageIndex = 1;
   bool _loading = true;
@@ -138,7 +139,6 @@ class _TravelTabPageState extends State<TravelTabPage>
   }
 }
 
-
 Widget _loadMoreIndicator(loadMore){
 
   Widget loadMoreIndicator = loadMore ?
@@ -171,7 +171,7 @@ class _TravelItem extends StatelessWidget {
           NavigatorUtil.push(
               context,WebView(
             url: item.article.urls[0].h5Url,
-            title: '携程旅拍',
+            title: "携程旅拍",
           ));
         }
       },
@@ -240,8 +240,8 @@ class _TravelItem extends StatelessWidget {
 
   String _poiName() {
     return item.article.pois == null || item.article.pois.length == 0
-        ? '未知'
-        : item.article.pois[0]?.poiName ?? '未知';
+        ? "未知"
+        : item.article.pois[0]?.poiName ?? "未知";
   }
 
   _infoText() {
