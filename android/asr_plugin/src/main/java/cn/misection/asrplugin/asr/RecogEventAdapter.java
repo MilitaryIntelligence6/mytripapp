@@ -8,10 +8,10 @@ import com.baidu.speech.asr.SpeechConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by fujiayi on 2017/6/14.
- */
 
+/**
+ * @author Administrator
+ */
 public class RecogEventAdapter implements EventListener {
 
     private OnAsrListener listener;

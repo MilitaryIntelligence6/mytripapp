@@ -5,7 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by fujiayi on 2017/6/24.
+ * @author Administrator
  */
 public class RecogResult {
     private static final int ERROR_NONE = 0;
