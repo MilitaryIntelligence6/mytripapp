@@ -17,7 +17,7 @@ class TravelTabPage extends StatefulWidget {
       : super(key: key);
 
   @override
-  _TravelTabPageState createState() => _TravelTabPageState();
+  _TravelTabPageState createState() => new _TravelTabPageState();
 }
 
 class _TravelTabPageState extends State<TravelTabPage>

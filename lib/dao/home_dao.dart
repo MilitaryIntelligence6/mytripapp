@@ -1,7 +1,7 @@
-import 'dart:async';
-import 'dart:convert';
-import 'package:flutter_ctrip/model/home_model.dart';
-import 'package:http/http.dart' as Http;
+import "dart:async";
+import "dart:convert";
+import "package:flutter_ctrip/model/home_model.dart";
+import "package:http/http.dart" as Http;
 
 /// 首页大接口
 class HomeDao {

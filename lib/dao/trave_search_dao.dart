@@ -1,8 +1,8 @@
-import 'dart:async';
-import 'dart:convert';
+import "dart:async";
+import "dart:convert";
 
-import 'package:flutter_ctrip/model/travel_search_model.dart';
-import 'package:http/http.dart' as http;
+import "package:flutter_ctrip/model/travel_search_model.dart";
+import "package:http/http.dart" as http;
 
 //旅拍搜索接口
 class TravelSearchDao {
@@ -38,7 +38,7 @@ class TravelSearchDao {
 
   static Future<TravelSearchModel> fetch(
       String url, String keyword) async {
-    PARAMS['keyword'] = keyword;
+    PARAMS["keyword"] = keyword;
     final response = await http.post(url, body: jsonEncode(PARAMS));
     if (response.statusCode == 200) {
       Utf8Decoder utf8decoder = Utf8Decoder(); // fix 中文乱码
@@ -47,7 +47,7 @@ class TravelSearchDao {
       model.keyword = keyword;
       return model;
     } else {
-      throw Exception('Failed to load travel');
+      throw Exception("Failed to load travel");
     }
   }
 }
