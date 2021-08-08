@@ -166,7 +166,7 @@ class _MyWebViewState extends State<MyWebView> {
                   widget.title ?? "",
                   style: new TextStyle(
                     color: backButtonColor,
-                    fontSize: 24,
+                    fontSize: 18,
                   ),
                 ),
               ),

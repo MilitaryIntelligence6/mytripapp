@@ -81,14 +81,18 @@ class _SearchBarState extends State<SearchBar> {
           child: _inputBox(),
         ),
         _wrapTap(
-            Container(
-              padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-              child: Text(
+            new Container(
+              padding: const EdgeInsets.symmetric(
+                vertical: 5,
+                horizontal: 10,
+              ),
+              child: const Text(
                 "搜索",
                 style: TextStyle(color: Colors.blue, fontSize: 17),
               ),
             ),
-            widget.rightButtonClick)
+            widget.rightButtonClick
+        )
       ]),
     );
   }
@@ -117,23 +121,23 @@ class _SearchBarState extends State<SearchBar> {
     );
   }
 
-  _inputBox() {
+  Widget _inputBox() {
     Color inputBoxColor;
     if (widget.searchBarType == SearchBarType.home) {
       inputBoxColor = Colors.white;
     } else {
       inputBoxColor = Color(int.parse("0xffEDEDED"));
     }
-    return Container(
+    return new Container(
       height: 34,
-      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+      decoration: new BoxDecoration(
           color: inputBoxColor, borderRadius: BorderRadius.circular(17)),
-      child: Row(
+      child: new Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset(
+          new Image.asset(
             "images/sousuo.png",
             width: 17,
           ),
@@ -216,7 +220,7 @@ class _SearchBarState extends State<SearchBar> {
   }
 
   _wrapTap(Widget child, void Function() callback) {
-    return GestureDetector(
+    return new GestureDetector(
       onTap: () {
         if (callback != null) callback();
       },
@@ -224,7 +228,7 @@ class _SearchBarState extends State<SearchBar> {
     );
   }
 
-  _onChanged(String text) {
+  void _onChanged(String text) {
     if (text.length > 0) {
       setState(() {
         showClear = true;

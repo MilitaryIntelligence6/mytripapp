@@ -7,25 +7,11 @@ import "package:flutter_ctrip/util/navigator_util.dart";
 import "package:flutter_ctrip/widget/search_bar.dart";
 import "package:flutter_ctrip/widget/webview.dart";
 
-const TYPES = [
-  "channelgroup",
-  "gs",
-  "plane",
-  "train",
-  "cruise",
-  "district",
-  "food",
-  "hotel",
-  "huodong",
-  "shop",
-  "sight",
-  "ticket",
-  "travelgroup"
-];
-const URL =
-    "http://m.ctrip.com/restapi/h5api/globalsearch/search?source=mobileweb&action=mobileweb&keyword=";
-
 class SearchPage extends StatefulWidget {
+
+  static const String URL =
+      "http://m.ctrip.com/restapi/h5api/globalsearch/search?source=mobileweb&action=mobileweb&keyword=";
+
   final bool hideLeft;
   final String searchUrl;
   final String keyword;
@@ -42,6 +28,23 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+
+  static const List<String> TYPES = [
+    "channelgroup",
+    "gs",
+    "plane",
+    "train",
+    "cruise",
+    "district",
+    "food",
+    "hotel",
+    "huodong",
+    "shop",
+    "sight",
+    "ticket",
+    "travelgroup"
+  ];
+
   SearchModel searchModel;
   String keyword;
 
@@ -56,16 +59,16 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-    return Scaffold(
-      body: Column(
+    return new Scaffold(
+      body: new Column(
         children: <Widget>[
           _appBar(),
-          MediaQuery.removePadding(
+          new MediaQuery.removePadding(
             removeTop: true,
             context: context,
-            child: Expanded(
+            child: new Expanded(
               flex: 1,
-              child: ListView.builder(
+              child: new ListView.builder(
                   itemCount: searchModel?.data?.length ?? 0,
                   itemBuilder: (BuildContext context, int position) {
                     return _item(position);
@@ -85,7 +88,7 @@ class _SearchPageState extends State<SearchPage> {
         Navigator.push(
           context,
           new MaterialPageRoute(
-            builder: (context) => new MyWebView(
+            builder: (BuildContext context) => new MyWebView(
               url: item.url,
               title: "详情",
             ),
@@ -235,13 +238,13 @@ class _SearchPageState extends State<SearchPage> {
     for (int i = 0; i < arr.length; i++) {
       if (i != 0) {
         preIndex = wordL.indexOf(keywordL, preIndex);
-        spans.add(TextSpan(
+        spans.add(new TextSpan(
             text: word.substring(preIndex, preIndex + keyword.length),
             style: keywordStyle));
       }
       String val = arr[i];
       if (val != null && val.length > 0) {
-        spans.add(TextSpan(text: val, style: normalStyle));
+        spans.add(new TextSpan(text: val, style: normalStyle));
       }
     }
     return spans;
@@ -249,9 +252,9 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget _isSubTitle(SearchItem item) {
     return item.price != null
-        ? Container(
+        ? new Container(
             width: 300,
-            margin: EdgeInsets.only(top: 5),
+            margin: const EdgeInsets.only(top: 5),
             child: _subTitle(item),
           )
         : const SizedBox.shrink();
