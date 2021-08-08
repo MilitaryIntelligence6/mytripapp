@@ -67,7 +67,7 @@ class _VerticalTabViewState extends State<VerticalTabView>
 
   PageController pageController = PageController();
 
-  List<AnimationController> animationControllers = [];
+  List<AnimationController> animationControllers = new List<AnimationController>();
 
   ScrollPhysics pageScrollPhysics = AlwaysScrollableScrollPhysics();
 

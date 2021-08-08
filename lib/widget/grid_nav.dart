@@ -22,7 +22,7 @@ class GridNav extends StatelessWidget {
   }
 
   _gridNavItems(BuildContext context) {
-    List<Widget> items = [];
+    List<Widget> items = new List<Widget>();
     if (gridNavModel == null) return items;
     if (gridNavModel.hotel != null) {
       items.add(_gridNavItem(context, gridNavModel.hotel, true));
@@ -36,12 +36,12 @@ class GridNav extends StatelessWidget {
     return items;
   }
 
-  _gridNavItem(BuildContext context, GridNavItem gridNavItem, bool first) {
-    List<Widget> items = [];
+  Widget _gridNavItem(BuildContext context, GridNavItem gridNavItem, bool first) {
+    List<Widget> items = new List<Widget>();
     items.add(_mainItem(context, gridNavItem.mainItem));
     items.add(_doubleItem(context, gridNavItem.item1, gridNavItem.item2));
     items.add(_doubleItem(context, gridNavItem.item3, gridNavItem.item4));
-    List<Widget> expandItem = [];
+    List<Widget> expandItem = new List<Widget>();
     items.forEach((item){
       expandItem.add(Expanded(child: item,flex: 1,));
     });
@@ -59,7 +59,7 @@ class GridNav extends StatelessWidget {
     );
   }
 
-  _mainItem(BuildContext context, CommonModel model) {
+  Widget _mainItem(BuildContext context, CommonModel model) {
     return _wrapGesture(
       context,
       Stack(
@@ -99,7 +99,7 @@ class GridNav extends StatelessWidget {
     );
   }
 
-  _item(BuildContext context, CommonModel item, bool first) {
+  Widget _item(BuildContext context, CommonModel item, bool first) {
     BorderSide borderSide = BorderSide(width: 0.8, color: Colors.white);
     return FractionallySizedBox(
       widthFactor: 1,

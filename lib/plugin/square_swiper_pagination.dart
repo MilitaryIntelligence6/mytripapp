@@ -56,7 +56,7 @@ class SquareSwiperPagination extends SwiperPlugin {
       );
     }
 
-    List<Widget> list = [];
+    List<Widget> list = new List<Widget>();
 
     int itemCount = config.itemCount;
     int activeIndex = config.activeIndex;

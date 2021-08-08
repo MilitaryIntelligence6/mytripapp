@@ -387,8 +387,10 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
   }
 
   List<Widget> _hotChip(BuildContext context) {
-    if (resourceItems == null) return [];
-    List<Widget> _chip = [];
+    if (resourceItems == null) {
+      return new List<Widget>();
+    }
+    List<Widget> _chip = new List<Widget>();
     resourceItems.forEach((resourceItem) {
       _chip.add(_hotItem(context, resourceItem));
     });

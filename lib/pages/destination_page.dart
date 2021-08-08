@@ -151,7 +151,7 @@ class _DestinationPageState extends State<DestinationPage>
       return;
     }
     for (int i = 0; i < navigationList.length; i++) {
-      List<Widget> tabPage = [];
+      List<Widget> tabPage = new List<Widget>();
       for (var j = 0; j < navigationList[i].destAreaList.length; j++) {
         String text = navigationList[i].destAreaList[j].text;
         tabPage.add(

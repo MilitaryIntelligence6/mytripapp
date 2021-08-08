@@ -40,7 +40,7 @@ class _DestinationSearchPageState extends State<DestinationSearchPage> {
   SuggestPreferType suggestPreferType;
   String keyword;
   int itemsL = 0;
-  List<Widget> items = [];
+  List<Widget> items = new List<Widget>();
 
   @override
   void initState() {
@@ -57,13 +57,15 @@ class _DestinationSearchPageState extends State<DestinationSearchPage> {
       body: Column(
         children: <Widget>[
           _appBar(),
-          MediaQuery.removePadding(
+          new MediaQuery.removePadding(
             removeTop: true,
             context: context,
-            child: Expanded(
+            child: new Expanded(
               flex: 1,
-              child: ListView(
-                children: items.length > 0 ? items : [],
+              child: new ListView(
+                children: items.length > 0
+                    ? items
+                    : new List<Widget>(),
               ),
             ),
           )

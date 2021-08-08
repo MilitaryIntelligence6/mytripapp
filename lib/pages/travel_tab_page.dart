@@ -120,9 +120,9 @@ class _TravelTabPageState extends State<TravelTabPage>
 
   List<TravelItem> _filterItems(List<TravelItem> resultList) {
     if (resultList == null) {
-      return [];
+      return new List<TravelItem>();
     }
-    List<TravelItem> filterItems = [];
+    List<TravelItem> filterItems = new List<TravelItem>();
     resultList.forEach((item) {
       if (item.article != null) {
         //移除article为空的模型
@@ -142,9 +142,8 @@ class _TravelTabPageState extends State<TravelTabPage>
 }
 
 Widget _loadMoreIndicator(loadMore){
-
-  Widget loadMoreIndicator = loadMore ?
-      new Padding(
+  return loadMore
+      ? new Padding(
         padding: const EdgeInsets.all(6),
         child: new Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -155,8 +154,6 @@ Widget _loadMoreIndicator(loadMore){
           ],
         ),
       ) : const SizedBox.shrink();
-
-  return loadMoreIndicator;
 }
 
 class _TravelItem extends StatelessWidget {
