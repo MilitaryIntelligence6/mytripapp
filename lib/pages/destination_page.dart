@@ -84,9 +84,9 @@ class _DestinationPageState extends State<DestinationPage>
                   searchBarType: SearchBarType.homeLight,
                   defaultText: DEFAULT_TEXT,
                   // 传入方法, 所以没括号;
-                  inputBoxClick: _jumpToSearch,
-                  speakClick: _jumpToSearch,
-                  rightButtonClick: _jumpToService,
+                  onInputBoxClicked: _jumpToSearch,
+                  onSpeakButtonClicked: _jumpToSearch,
+                  onRightButtonClicked: _jumpToService,
                   rightIcon: true,
                 ),
               ),

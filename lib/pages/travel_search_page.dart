@@ -87,11 +87,11 @@ class _TravelSearchPageState extends State<TravelSearchPage> {
                 hideLeft: widget.hideLeft,
                 hint: widget.hint,
                 defaultText: widget.keyword,
-                leftButtonClick: () {
+                onLeftButtonClicked: () {
                   Navigator.pop(context);
                 },
                 onChanged: _onTextChange,
-                speakClick: _jumpToSpeak,
+                onSpeakButtonClicked: _jumpToSpeak,
               )),
         ),
         new Row(

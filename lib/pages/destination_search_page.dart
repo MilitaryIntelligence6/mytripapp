@@ -23,8 +23,12 @@ class DestinationSearchPage extends StatefulWidget {
   final String keyword;
   final String hint;
 
-  DestinationSearchPage(
-      {this.hideLeft = true, this.searchUrl = URL, this.keyword, this.hint});
+  DestinationSearchPage({
+    this.hideLeft = true,
+    this.searchUrl = URL,
+    this.keyword,
+    this.hint
+  });
 
   @override
   _DestinationSearchPageState createState() => _DestinationSearchPageState();
@@ -74,7 +78,7 @@ class _DestinationSearchPageState extends State<DestinationSearchPage> {
     );
   }
 
-  _appBar() {
+  Widget _appBar() {
     return Column(
       children: <Widget>[
         Container(
@@ -99,15 +103,25 @@ class _DestinationSearchPageState extends State<DestinationSearchPage> {
                   ),
                 ],
               ),
-              child: SearchBar(
+              child: new SearchBar(
                 hideLeft: widget.hideLeft,
                 defaultText: widget.keyword,
                 hint: widget.hint,
-                leftButtonClick: () {
+                onLeftButtonClicked: () {
                   Navigator.pop(context);
                 },
+                onRightButtonClicked: () {
+                  // if (widget.keyword == null || widget.keyword == "") {
+                  //   return;
+                  // }
+                  if (keyword.length == null || keyword.length == 0) {
+                    return;
+                  }
+                  String url = "https://m.ctrip.com/webapp/vacations/tour/list?filter=null&kwd=${keyword}&kwdfrom=assword&poid=61&poitype=D&salecity=2&scity=2&searchtype=all&tab=126";
+                  _jumpToSearch(url);
+                },
                 onChanged: _onTextChange,
-                speakClick: _jumpToSpeak,
+                onSpeakButtonClicked: _jumpToSpeak,
               )),
         )
       ],
@@ -253,16 +267,25 @@ class _DestinationSearchPageState extends State<DestinationSearchPage> {
       return GestureDetector(
         onTap: () {
           if(tabItem is TabInfoTypes){
-            if(tabItem.type == "ProductPattern") url = "https://m.ctrip.com/webapp/vacations/tour/list?filter=n${tabItem.tabId}&kwd=${keyword}&kwdfrom=assword&salecity=2&scity=2&searchtype=all&tab=126";
-            if(tabItem.tabId == "131072") url = "https://m.ctrip.com/webapp/dingzhi/index?startDistrictId=2&startName=${tabItem.tabName}&destLandingPoid=&destLandingName=${tabItem.tabName}&productOrigin=13&from=https%3A%2F%2Fm.ctrip.com%2Fwebapp%2Fvacations%2Ftour%2Fdestination%3Ffrompage%3Dlist%26tab%3D126%26searchtype%3Dall%26initkwd%3D%25E4%25B8%2589%25E4%25BA%259A%26query%3Dkwdfrom%253Dassword%2526salecity%253D2%2526scity%253D2";
-            else url = "https://m.ctrip.com/webapp/vacations/tour/list?kwd=${keyword}&kwdfrom=assword&salecity=2&scity=2&searchtype=all&tab=${tabItem.tabId}";
+            if(tabItem.type == "ProductPattern") {
+              url = "https://m.ctrip.com/webapp/vacations/tour/list?filter=n${tabItem.tabId}&kwd=${keyword}&kwdfrom=assword&salecity=2&scity=2&searchtype=all&tab=126";
+            }
+            if(tabItem.tabId == "131072") {
+              url = "https://m.ctrip.com/webapp/dingzhi/index?startDistrictId=2&startName=${tabItem.tabName}&destLandingPoid=&destLandingName=${tabItem.tabName}&productOrigin=13&from=https%3A%2F%2Fm.ctrip.com%2Fwebapp%2Fvacations%2Ftour%2Fdestination%3Ffrompage%3Dlist%26tab%3D126%26searchtype%3Dall%26initkwd%3D%25E4%25B8%2589%25E4%25BA%259A%26query%3Dkwdfrom%253Dassword%2526salecity%253D2%2526scity%253D2";
+            } else {
+              url = "https://m.ctrip.com/webapp/vacations/tour/list?kwd=${keyword}&kwdfrom=assword&salecity=2&scity=2&searchtype=all&tab=${tabItem.tabId}";
+            }
           }
           if(tabItem is HotPoiTypes) {
             url = "https://m.ctrip.com/webapp/vacations/tour/list?kwd=${tabItem.searchName}&kwdfrom=assword&poid=${tabItem.poid}&salecity=2&scity=2&searchtype=all&tab=126";
           }
           if(tabItem is PreferInfoTypes){
-            if (tabItem.name == "5日") filter = "u5";
-            if (tabItem.name == "5钻") filter = "g5";
+            if (tabItem.name == "5日") {
+              filter = "u5";
+            }
+            if (tabItem.name == "5钻") {
+              filter = "g5";
+            }
             url = "https://m.ctrip.com/webapp/vacations/tour/list?filter=${filter!=""?filter:tabItem.id}&kwd=${keyword}&kwdfrom=assword&poid=61&poitype=D&salecity=2&scity=2&searchtype=all&tab=126";
           }
           _jumpToSearch(url);

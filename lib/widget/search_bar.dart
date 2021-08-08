@@ -2,7 +2,11 @@ import "package:flutter/material.dart";
 import "package:flutter_ctrip/model/travel_hot_keyword_model.dart";
 import "package:flutter_swiper/flutter_swiper.dart";
 
-enum SearchBarType { home, normal, homeLight }
+enum SearchBarType {
+  home,
+  normal,
+  homeLight,
+}
 
 class SearchBar extends StatefulWidget {
   final bool enabled;
@@ -12,10 +16,10 @@ class SearchBar extends StatefulWidget {
   final SearchBarType searchBarType;
   final String hint;
   final String defaultText;
-  final void Function() leftButtonClick;
-  final void Function() rightButtonClick;
-  final void Function() speakClick;
-  final void Function() inputBoxClick;
+  final void Function() onLeftButtonClicked;
+  final void Function() onRightButtonClicked;
+  final void Function() onSpeakButtonClicked;
+  final void Function() onInputBoxClicked;
   final ValueChanged<String> onChanged;
   final List<HotKeyword> hintList;
 
@@ -28,10 +32,10 @@ class SearchBar extends StatefulWidget {
       this.searchBarType = SearchBarType.normal,
       this.hint,
       this.defaultText,
-      this.leftButtonClick,
-      this.rightButtonClick,
-      this.speakClick,
-      this.inputBoxClick,
+      this.onLeftButtonClicked,
+      this.onRightButtonClicked,
+      this.onSpeakButtonClicked,
+      this.onInputBoxClicked,
       this.onChanged,
       this.hintList})
       : super(key: key);
@@ -61,9 +65,9 @@ class _SearchBarState extends State<SearchBar> {
         : _genHomeSearch();
   }
 
-  _genNormalSearch() {
-    return Container(
-      child: Row(children: <Widget>[
+  Widget _genNormalSearch() {
+    return new Container(
+      child: new Row(children: <Widget>[
         _wrapTap(
             Container(
               padding: EdgeInsets.fromLTRB(6, 5, 10, 5),
@@ -75,7 +79,7 @@ class _SearchBarState extends State<SearchBar> {
                       size: 24,
                     ),
             ),
-            widget.leftButtonClick),
+            widget.onLeftButtonClicked),
         Expanded(
           flex: 1,
           child: _inputBox(),
@@ -91,8 +95,7 @@ class _SearchBarState extends State<SearchBar> {
                 style: TextStyle(color: Colors.blue, fontSize: 17),
               ),
             ),
-            widget.rightButtonClick
-        )
+            widget.onRightButtonClicked)
       ]),
     );
   }
@@ -116,7 +119,7 @@ class _SearchBarState extends State<SearchBar> {
                 : widget.isUserIcon
                     ? rightIcon("images/user1.png")
                     : rightIcon(sMessage),
-            widget.rightButtonClick),
+            widget.onRightButtonClicked),
       ]),
     );
   }
@@ -195,14 +198,14 @@ class _SearchBarState extends State<SearchBar> {
                                     TextStyle(fontSize: 14, color: Colors.grey),
                               ),
                             ),
-                      widget.inputBoxClick)),
+                      widget.onInputBoxClicked)),
           !showClear
               ? _wrapTap(
                   Image.asset(
                     "images/yuyin.png",
                     width: 17,
                   ),
-                  widget.speakClick)
+                  widget.onSpeakButtonClicked)
               : _wrapTap(
                   Icon(
                     Icons.clear,

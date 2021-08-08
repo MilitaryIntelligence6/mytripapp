@@ -194,11 +194,11 @@ class _HomePageState extends State<HomePage> {
               searchBarType: appBarAlpha > 0.2
                   ? SearchBarType.homeLight
                   : SearchBarType.home,
-              inputBoxClick: _jumpToSearch,
-              leftButtonClick: () {},
+              onInputBoxClicked: _jumpToSearch,
+              onLeftButtonClicked: () {},
               // 语音点击;
-              speakClick: _jumpToSpeak,
-              rightButtonClick: _jumpToUser,
+              onSpeakButtonClicked: _jumpToSpeak,
+              onRightButtonClicked: _jumpToUser,
             ),
           ),
         ),
